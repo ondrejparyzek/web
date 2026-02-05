@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404: Stránka nenalezena | Oživ.to</title>
+
+    <link rel="shortcut icon" type="image/jpeg" href="OZIV.TO.jpeg">
+
+    <link rel="shortcut icon" type="image/jpeg" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Specifický styl pro 404 stránku */
+        body {
+            /* Zajistí, že stránka bude přes celou výšku okna */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .error-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: #fff; /* Čisté bílé pozadí */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .error-code {
+            font-size: clamp(8rem, 20vw, 15rem);
+            font-weight: 900;
+            line-height: 1;
+            color: #1a1a1a;
+            position: relative;
+            margin: 0;
+        }
+
+        /* Neonový stín pro číslo */
+        .error-code span {
+            color: #00f81d;
+            text-shadow: 0 0 50px rgba(0, 248, 29, 0.4);
+        }
+
+        .error-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin: 1rem 0;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .error-text {
+            color: #666;
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Dekorativní prvek na pozadí */
+        .bg-shape {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 248, 29, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        /* Ujistíme se, že obsah je nad pozadím */
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Footer fix */
+        footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="OZIV.TO.jpeg" alt="Oživ.to Logo" class="nav-logo-img">
+            </a>
+            <a href="index.html" class="btn secondary small-btn">Zpět na web</a>
+        </div>
+    </nav>
+
+    <section class="error-container">
+        <div class="bg-shape"></div>
+        
+        <div class="content-wrapper">
+            <h1 class="error-code">4<span>0</span>4</h1>
+            <h2 class="error-title">Střih! Tady nic není.</h2>
+            <p class="error-text">Vypadá to, že tato scéna skončila ve střižně. Stránka, kterou hledáte, neexistuje nebo byla přesunuta.</p>
+            
+            <a href="index.html" class="btn primary">
+                Zpět na domovskou stránku
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="text-align: center;">
+            <p style="color: #888; font-size: 0.9rem;">&copy; 2026 Oživ.to. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
