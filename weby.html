@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Tvorba webových stránek | Oživto Louny</title>
+    <meta name="description" content="Tvoříme moderní, rychlé a responzivní webové stránky, které promění návštěvníky v platící klienty. Webdesign a vývoj Louny.">
+    <meta name="author" content="Ondřej Parýzek, Oživto">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.jsmeozivto.cz/weby.html">
+
+    <meta property="og:title" content="Tvorba webových stránek | Oživto">
+    <meta property="og:description" content="Moderní weby, které prodávají vaše služby 24/7.">
+    <meta property="og:image" content="https://i.postimg.cc/zDRKPtML/OGimage.png">
+    <meta property="og:url" content="https://www.jsmeozivto.cz/weby.html">
+    <meta property="og:type" content="website">
+
+    <link rel="shortcut icon" type="image/jpeg" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="OZIV.TO.jpeg" alt="Oživ.to Logo" class="nav-logo-img">
+            </a>
+            
+            <button class="hamburger" aria-label="Menu">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="#ukazky">Portfolio</a></li>
+                <li><a href="#process">Proces</a></li>
+                <li><a href="#technologie">Nástroje</a></li>
+                <li><a href="#contact" class="btn-nav">Nezávazná poptávka</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <header id="hero" style="min-height: 70vh; padding-top: 150px;">
+        <div class="container hero-content reveal">
+            <span class="section-tag">TVORBA WEBŮ</span>
+            <h1 style="font-size: clamp(2.2rem, 5vw, 4rem);">Web, který pracuje <span class="highlight">za vás.</span></h1>
+            <p>Netvoříme jen hezké vizitky. Tvoříme moderní, rychlé a responzivní prodejní nástroje, které z návštěvníků dělají platící zákazníky.</p>
+            <div class="hero-btns">
+                <a href="index.html#contact" class="btn primary">Chci nový web</a>
+                <a href="#ukazky" class="btn secondary">Zobrazit ukázky</a>
+            </div>
+        </div>
+        <div class="hero-shape"></div>
+    </header>
+
+    <section id="services" style="padding: 4rem 0;">
+        <div class="container reveal">
+            <div class="services-grid-clean">
+                
+                <div class="service-card-clean">
+                    <div class="icon-clean"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <h3>Responzivita</h3>
+                    <p>Většina uživatelů dnes hledá služby na mobilu. Váš web bude vypadat a fungovat naprosto bezchybně na každém displeji – od iPhonu po velký monitor.</p>
+                </div>
+
+                <div class="service-card-clean">
+                    <div class="icon-clean"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>Blesková rychlost</h3>
+                    <p>Pomalý web zabíjí byznys a odhání klienty. Píšeme čistý kód a optimalizujeme média tak, aby se stránka načetla do několika málo vteřin.</p>
+                </div>
+
+                <div class="service-card-clean">
+                    <div class="icon-clean"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h3>Základní SEO</h3>
+                    <p>Krásný web bez návštěvníků je k ničemu. Stránky stavíme technologicky tak, aby je vyhledávače (Google, Seznam) milovaly a snadno četly.</p>
+                </div>
+
+                <div class="service-card-clean">
+                    <div class="icon-clean"><i class="fa-solid fa-paintbrush"></i></div>
+                    <h3>Moderní UX/UI design</h3>
+                    <p>Design, který vede zákazníka za ruku. Tvoříme přehlednou strukturu a strategicky umístěné výzvy k akci (CTA), které zvedají poptávky.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="ukazky" style="padding: 6rem 0; background: var(--bg-main);">
+        <div class="container reveal">
+            <div class="section-header center">
+                <span class="section-tag">NAŠE PRÁCE</span>
+                <h2>Ukázky webů</h2>
+                <p style="color: #666; margin-top: -10px; margin-bottom: 40px;">Prohlédněte si weby, které jsme vytvořili pro naše klienty.</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <a href="#" class="project-item reveal">
+                    <img src="novotnyweblogo.png" alt="Ukázka webu 1" loading="lazy">
+                    <div class="overlay">
+                        <h4>Autocentrum Novotný</h4>
+                        <span>Prodejní web</span>
+                    </div>
+                </a>
+
+                <a href="#" class="project-item reveal">
+                    <img src="ozivtowebologo.png" alt="Ukázka webu 2" loading="lazy">
+                    <div class="overlay">
+                        <h4>Oživto</h4>
+                        <span>Firemní identita & Web</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="project-item reveal">
+                    <img src="ahorncampweblogo.png" alt="Ukázka webu 3" loading="lazy">
+                    <div class="overlay">
+                        <h4>AhornCamp</h4>
+                        <span>Prodejní web</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="reveal" style="background-color: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">JAK TO FUNGUJE</span>
+                <h2>Od nápadu po spuštění</h2>
+                <p style="color: #666; margin-top: -10px; margin-bottom: 20px;">Posuňte pro další kroky <i class="fa-solid fa-arrow-right"></i></p>
+            </div>
+
+            <div class="process-slider-container">
+                <div class="process-slider" id="process-slider">
+                    
+                    <div class="process-card">
+                        <div class="step-number">01</div>
+                        <h3>Analýza a návrh</h3>
+                        <p>Zjistíme, co přesně váš byznys potřebuje, jaká je konkurence a navrhneme logickou strukturu nového webu.</p>
+                    </div>
+
+                    <div class="process-card">
+                        <div class="step-number">02</div>
+                        <h3>Texty a Design</h3>
+                        <p>Vytvoříme moderní a atraktivní vzhled na míru. Připravíme prodejní texty, které návštěvníky přesvědčí k akci.</p>
+                    </div>
+
+                    <div class="process-card">
+                        <div class="step-number">03</div>
+                        <h3>Programování</h3>
+                        <p>Grafický návrh převedeme do rychlého, čistého a 100% responzivního kódu, který budou vyhledávače milovat.</p>
+                    </div>
+
+                    <div class="process-card">
+                        <div class="step-number">04</div>
+                        <h3>Testování</h3>
+                        <p>Před spuštěním vše pečlivě proklikáme na počítači, mobilu i tabletu, abychom vyloučili jakékoliv chyby.</p>
+                    </div>
+
+                    <div class="process-card highlight-card">
+                        <div class="icon-rocket"><i class="fa-solid fa-rocket"></i></div>
+                        <h3>Spuštění a podpora</h3>
+                        <p>Web nasadíme na vaši doménu a napojíme analytiku. Tím to ale nekončí – postaráme se i o následnou správu a aktualizace.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="technologie" class="reveal" style="padding: 6rem 0; background-color: var(--bg-main);">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">NÁSTROJE</span>
+                <h2>V čem vyvíjíme</h2>
+                <p style="color: #666; margin-top: -10px; margin-bottom: 40px;">Nestavíme na zastaralých šablonách. Používáme moderní stack, který zaručuje bleskovou rychlost a bezpečnost.</p>
+            </div>
+
+            <div class="modern-tech-grid">
+                <div class="tech-pill">
+                    <i class="fa-brands fa-figma" style="color: #F24E1E;"></i>
+                    <span>Figma</span>
+                </div>
+
+                <div class="tech-pill">
+                    <i class="fa-brands fa-react" style="color: #61dbfb;"></i>
+                    <span>React</span>
+                </div>
+                
+                <div class="tech-pill">
+                    <i class="fa-brands fa-js" style="color: #f7df1e;"></i>
+                    <span>JavaScript</span>
+                </div>
+                
+                <div class="tech-pill">
+                    <i class="fa-brands fa-html5" style="color: #e34c26;"></i>
+                    <span>HTML5</span>
+                </div>
+                
+                <div class="tech-pill">
+                    <i class="fa-brands fa-css3-alt" style="color: #264de4;"></i>
+                    <span>CSS3</span>
+                </div>
+
+                <div class="tech-pill">
+                    <i class="fa-brands fa-bootstrap" style="color: #7952b3;"></i>
+                    <span>Bootstrap</span>
+                </div>
+                
+                <div class="tech-pill">
+                    <i class="fa-brands fa-github" style="color: #1a1a1a;"></i>
+                    <span>GitHub</span>
+                </div>
+
+                <div class="tech-pill">
+                    <i class="fa-solid fa-cloud-bolt" style="color: #00c7b7;"></i>
+                    <span>Netlify</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="reveal">
+        <div class="container contact-wrapper">
+            <div class="contact-info">
+                <span class="section-tag">NÁZOR ZDARMA</span>
+                <h2>Pojďme vytvořit váš nový web.</h2>
+                <p>Vyberte si termín úvodní konzultace, který vám vyhovuje. Probereme vaši představu o webových stránkách a navrhneme řešení, které vám reálně pomůže získat více zákazníků.</p>
+                
+                <div class="direct-contact">
+                    <a href="mailto:info@jsmeozivto.cz" class="contact-link"><i class="fa-solid fa-envelope"></i> info@jsmeozivto.cz</a>
+                    <a href="tel:+420722066403" class="contact-link"><i class="fa-solid fa-phone"></i> +420 722 066 403</a>
+                </div>
+            </div>
+
+            <div class="cal-wrapper">
+                <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-konzutace"></div>
+                    <script type="text/javascript">
+                        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+                        Cal("init", "konzutace", {origin:"https://app.cal.com"});
+
+                        Cal.ns.konzutace("inline", {
+                            elementOrSelector:"#my-cal-inline-konzutace",
+                            config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"},
+                            calLink: "ozivto/konzutace",
+                        });
+
+                        Cal.ns.konzutace("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#00f81d"}},"hideEventTypeDetails":false,"layout":"month_view"});
+                    </script>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="logo footer-logo">
+                    <img src="OZIV.TO.jpeg" alt="Logo Oživ.to" style="max-height: 60px; width: auto;" loading="lazy">
+                </a>
+                <p style="margin-top: 10px; font-size: 0.9rem;">
+                    Pomáháme firmám růst skrze moderní video marketing, webdesign a strategie na sociálních sítích.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Fakturační údaje</h4>
+                <p><strong>Ondřej Parýzek</strong></p>
+                <p>IČO: 23559624</p>
+                <p>Sídlo: Zeměchy 33, 440 01 Louny</p>
+                <p style="margin-top: 10px; font-size: 0.8rem; color: #666;">Fyzická osoba zapsaná v živnostenském rejstříku.<br>Nejsem plátce DPH.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Kontakt & Info</h4>
+                <p><i class="fa-solid fa-envelope"></i> <a href="mailto:info@jsmeozivto.cz">info@jsmeozivto.cz</a></p>
+                <p><i class="fa-solid fa-phone"></i> <a href="tel:+420722066403">+420 722 066 403</a></p>
+                
+                <div class="socials" style="margin-top: 20px;">
+                    <a href="https://www.instagram.com/oziv.to/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/ozivto/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.facebook.com/p/O%C5%BEiv-to-61565459087482/"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Oživ.to. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
