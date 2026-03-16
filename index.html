@@ -24,6 +24,7 @@
     <meta property="og:title" content="Oživto | Oživíme i vaše podnikání">
     <meta property="og:description" content="Tvoříme videa a spravujeme sítě, které prodávají.">
 
+    <link rel="preload" href="OZIV.TO.svg" as="image" type="image/svg+xml">
     <link rel="shortcut icon" type="image/jpeg" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,8 +85,8 @@
 
     <nav>
         <div class="container nav-container">
-            <a href="#" class="logo">
-                <img src="OZIV.TO.jpeg" alt="Oživ.to Logo" class="nav-logo-img">
+            <a href="index.html" class="logo">
+                <img src="OZIV.TO.svg" alt="Oživ.to Logo" class="nav-logo-img" fetchpriority="high" decoding="sync">
             </a>
             
             <button class="hamburger" aria-label="Menu">
@@ -97,9 +98,9 @@
             <ul class="nav-links">
                 <li><a href="#about">O nás</a></li>
                 <li><a href="#services">Služby</a></li>
+                <li><a href="#portfolio">Projekty</a></li>
                 <li><a href="weby.html">Weby</a></li>
                 <li><a href="#team">Tým</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact" class="btn-nav">Kontaktovat</a></li>
             </ul>
         </div>
@@ -242,50 +243,33 @@
         </div>
     </section>
 
-    <section id="team">
-        <div class="container">
-            <div class="section-header center">
-                <span class="section-tag">KDO ZA TÍM STOJÍ</span>
-                <h2>Náš tým</h2>
-                <p style="color: #666; margin-top: -10px; margin-bottom: 20px;">Klikněte na obrázek pro více informací.</p>
-            </div>
-            
-            <div class="team-grid">
-                <div class="team-card open-modal-btn" data-target="modal-ondra">
-                    <div class="team-img-wrapper">
-                        <img src="ondra.jpeg" alt="Ondřej Parýzek">
-                        <div class="team-overlay"><i class="fa-solid fa-plus"></i></div>
-                    </div>
-                    <h3>Ondřej Parýzek</h3>
-                    <p class="role">Spoluzakladatel & Marketing</p>
-                </div>
-
-                <div class="team-card open-modal-btn" data-target="modal-daniel">
-                    <div class="team-img-wrapper">
-                        <img src="daniel.jpeg" alt="Daniel Havránek">
-                        <div class="team-overlay"><i class="fa-solid fa-plus"></i></div>
-                    </div>
-                    <h3>Daniel Havránek</h3>
-                    <p class="role">Spoluzakladatel & Obchodník</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section id="portfolio">
         <div class="container">
             <div class="section-header center">
                 <span class="section-tag">VÝSLEDKY</span>
                 <h2>Vybrané projekty</h2>
+                <p style="color: #666; margin-top: -10px; margin-bottom: 20px;">Klikněte pro zobrazení případových studií.</p>
             </div>
 
             <div class="portfolio-grid">
-                <a href="https://www.youtube.com/playlist?list=PLP4GPVHxs2o-rTQXmaUJKmwSCR3_jhIlr" target="_blank" class="project-item">
+                
+                <a href="czechdesigners.html" class="project-item">
+                    <img src="czechdesigners.png" alt="Projekt 1">
+                    <div class="overlay">
+                        <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 2.5rem; margin-bottom: 10px; color: var(--accent-primary);"></i>
+                        <h4>Czech Designers</h4>
+                        <span>Případová studie (YouTube Funnel)</span>
+                    </div>
+                </a>
+                
+                
+                <a href="homeaway.html" class="project-item">
                     <img src="homeaway.png" alt="Projekt 1">
                     <div class="overlay">
-                        <i class="fa-solid fa-play-circle" style="font-size: 3rem; margin-bottom: 10px; color: var(--accent-primary);"></i>
+                        <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 2.5rem; margin-bottom: 10px; color: var(--accent-primary);"></i>
                         <h4>Homeaway</h4>
-                        <span>Video Produkce</span>
+                        <span>Kompletní identita & Obsah</span>
                     </div>
                 </a>
 
@@ -297,18 +281,7 @@
                         <span>Správa sítí & grafika</span>
                     </div>
                 </a>
-
-                <a href="https://www.youtube.com/playlist?list=PLP4GPVHxs2o9aqyDBdwm1_mLA-Vzq4ih6" target="_blank" class="project-item">
-                    <img src="czechdesigners.png" alt="Projekt 3">
-                    <div class="overlay">
-                        <i class="fa-solid fa-play-circle" style="font-size: 3rem; margin-bottom: 10px; color: var(--accent-primary);"></i>
-                        <h4>Czech Designers</h4>
-                        <span>Tvorba videí</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="center" style="margin-top: 3rem; margin-bottom: 5rem;">
+            </div> <div class="center" style="margin-top: 3rem; margin-bottom: 5rem;">
                 <a href="https://www.youtube.com/playlist?list=PLP4GPVHxs2o8APJmFD4MUQq2M3AG8kDy6" target="_blank" class="btn secondary">
                     Zobrazit další práce <i class="fa-brands fa-youtube" style="margin-left: 8px;"></i>
                 </a>
@@ -337,6 +310,36 @@
                 </div>
             </div>
         </div>  
+    </section>
+
+        <section id="team">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">KDO ZA TÍM STOJÍ</span>
+                <h2>Náš tým</h2>
+                <p style="color: #666; margin-top: -10px; margin-bottom: 20px;">Klikněte na obrázek pro více informací.</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card open-modal-btn" data-target="modal-ondra">
+                    <div class="team-img-wrapper">
+                        <img src="ondra.jpeg" alt="Ondřej Parýzek">
+                        <div class="team-overlay"><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                    <h3>Ondřej Parýzek</h3>
+                    <p class="role">Spoluzakladatel & Marketing</p>
+                </div>
+
+                <div class="team-card open-modal-btn" data-target="modal-daniel">
+                    <div class="team-img-wrapper">
+                        <img src="daniel.jpeg" alt="Daniel Havránek">
+                        <div class="team-overlay"><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                    <h3>Daniel Havránek</h3>
+                    <p class="role">Spoluzakladatel & Obchodník</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="reviews">
@@ -581,9 +584,9 @@ Děkuji a přeji spoustu úspěchů a spokojených klientů!
     <footer>
         <div class="container footer-grid">
             <div class="footer-col">
-                <a href="#" class="logo footer-logo">
-                    <img src="OZIV.TO.jpeg" alt="Logo Oživ.to" style="max-height: 60px; width: auto;">
-                </a>
+                <a href="index.html" class="logo">
+                <img src="OZIV.TO.svg" alt="Oživ.to Logo" class="nav-logo-img" fetchpriority="high" decoding="sync">
+            </a>
                 <p style="margin-top: 10px; font-size: 0.9rem;">
                     Pomáháme firmám růst skrze moderní video marketing a strategie na sociálních sítích.
                 </p>
