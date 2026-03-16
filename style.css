@@ -1478,3 +1478,312 @@ footer {
     color: var(--accent-primary) !important;
     transform: scale(1.1) rotate(-5deg);
 }
+
+/* =========================================
+   18. PŘÍPADOVÉ STUDIE (CASE STUDIES) A FUNNEL
+   ========================================= */
+
+/* Hlavička případovky */
+.case-hero {
+    padding: 160px 0 8rem;
+    text-align: center;
+    background-color: var(--bg-secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.case-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin: 1rem 0 1.5rem;
+}
+
+/* Kartičky s výsledky vytažené do hlavičky */
+.case-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: -4rem auto 4rem;
+    position: relative;
+    z-index: 10;
+}
+
+.stat-card {
+    background: #ffffff;
+    padding: 2.5rem 1.5rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0, 248, 29, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card h3 {
+    font-size: 2.5rem;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 900;
+}
+
+.stat-card p {
+    font-weight: 700;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* Textové tělo případovky */
+.case-body { padding: 2rem 0 6rem; }
+.case-body h2 { font-size: 2rem; margin-top: 4rem; margin-bottom: 1.5rem; color: var(--text-main); line-height: 1.2; }
+.case-body h3 { font-size: 1.4rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--text-main); }
+.case-body p { font-size: 1.15rem; color: #555; line-height: 1.8; margin-bottom: 1.5rem; }
+
+/* Vylepšený design prodejního funnelu */
+.funnel-container {
+    margin: 3rem 0;
+    background: #ffffff;
+    border-radius: 24px;
+    border: 1px solid #eee;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+    overflow: hidden;
+}
+
+.funnel-header {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.funnel-header h3 { margin: 0; font-size: 1.5rem; }
+
+.funnel-steps {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.funnel-step {
+    display: flex;
+    gap: 20px;
+    padding: 2rem 0;
+    border-bottom: 1px dashed #eee;
+    position: relative;
+}
+
+.funnel-step:last-child { border-bottom: none; }
+
+.step-number {
+    min-width: 60px;
+    height: 60px;
+    background: rgba(0, 248, 29, 0.1);
+    color: var(--accent-dark);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.step-content h4 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--text-main); }
+.step-content p { font-size: 1.05rem; margin-bottom: 0; }
+
+.step-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: #ffffff; /* Čisté bílé pozadí */
+    color: var(--accent-primary); /* Zelený text */
+    border: 1px solid var(--accent-primary); /* Tenký zelený rámeček */
+    font-size: 0.75rem;
+    font-weight: 800;
+    border-radius: 50px; /* Moderní tvar pilulky */
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0, 248, 29, 0.1); /* Velmi jemný zelený stín pro hloubku */
+}
+
+/* Zvýrazněný box (citát / klíčová myšlenka) */
+.highlight-box {
+    background: rgba(0, 248, 29, 0.05);
+    padding: 2rem;
+    border-left: 4px solid var(--accent-primary);
+    border-radius: 0 16px 16px 0;
+    margin: 2rem 0;
+}
+
+.highlight-box p {
+    margin: 0;
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 1.2rem;
+}
+
+/* =========================================
+   TRYCHTÝŘ (FUNNEL) - NOVÝ DESIGN (#process)
+   ========================================= */
+.funnel-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.funnel-stage {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.funnel-stage .funnel-content {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 700px;
+}
+
+/* Postupné zužování a zakulacování pro efekt trychtýře */
+.stage-1 {
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+}
+
+.stage-2 {
+    width: 85%; /* Zúžení */
+    border-left: 1px solid rgba(0,0,0,0.05);
+    border-right: 1px solid rgba(0,0,0,0.05);
+}
+
+.stage-3 {
+    width: 70%; /* Nejužší */
+    border-radius: 0 0 20px 20px;
+}
+
+/* Styling vnitřku */
+.funnel-icon {
+    font-size: 2.5rem;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+}
+
+.funnel-text h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+    color: var(--text-main);
+}
+
+.funnel-text p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Zvýraznění poslední fáze (Konverze) */
+.highlight-stage {
+    background: #1a1a1a;
+    border-color: #1a1a1a;
+}
+
+.highlight-stage .funnel-text h3 {
+    color: #ffffff;
+}
+
+.highlight-stage .funnel-text p {
+    color: #a0a0a0;
+}
+
+.highlight-stage .funnel-icon {
+    color: var(--accent-primary);
+}
+
+/* Hover efekty */
+.funnel-stage:hover:not(.highlight-stage) {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    border-color: rgba(0, 248, 29, 0.1);
+}
+
+/* Zvýraznění poslední fáze (Konverze) - Světlý design */
+.highlight-stage {
+    background: rgba(0, 248, 29, 0.03); /* Velmi jemná zelená místo černé */
+    border-color: rgba(0, 248, 29, 0.4); /* Zelený rámeček */
+}
+
+.highlight-stage .funnel-text h3 {
+    color: var(--text-main); /* Zpět na tmavý text */
+}
+
+.highlight-stage .funnel-text p {
+    color: var(--text-light); /* Zpět na šedý text */
+}
+
+.highlight-stage .funnel-icon {
+    color: var(--accent-primary);
+}
+
+/* Responzivita pro mobily */
+@media (max-width: 768px) {
+    .funnel-stage {
+        width: 100% !important; /* Na mobilu plná šířka */
+        border-radius: 15px !important;
+        margin-bottom: 1rem;
+    }
+    
+    .funnel-stage .funnel-content {
+        padding: 2rem 1rem;
+    }
+    
+    .funnel-arrow {
+        display: none; /* Schováme šipky na mobilu */
+    }
+    
+    .funnel-visual {
+        gap: 1rem;
+    }
+}
+
+
+/* =========================================
+   OPRAVA TLAČÍTKA "ZPĚT NA WEB" V MOBILNÍ NAVIGACI
+   ========================================= */
+@media (max-width: 900px) {
+    /* 1. Srovná tlačítko do jedné řady a přizpůsobí jeho velikost úzké liště */
+    .nav-container .btn.secondary {
+        margin-top: 0 !important;
+        display: inline-block !important;
+        padding: 0.4rem 0.8rem !important; /* Výrazně zmenšíme vycpávky */
+        font-size: 0.75rem !important; /* Menší text pro mobil */
+        border-width: 1px !important; /* Tenčí a elegantnější rámeček */
+        white-space: nowrap !important; /* Přísný zákaz lámání textu */
+    }
+
+    /* 2. Zmenšíme logo POUZE na stránkách, kde je toto tlačítko, aby se oboje vešlo */
+    .nav-container:has(.btn.secondary) .nav-logo-img {
+        height: 40px !important; /* Původně je tu 60px, to by se nevešlo */
+    }
+}
+
+.video-embed iframe {
+    display: block;
+}
