@@ -31,6 +31,7 @@
             <ul class="nav-links">
                 <li><a href="czechdesigners.html">Další studie</a></li>
                 <li><a href="index.html">Zpět</a></li>
+            </ul> </div>
     </nav>
 
     <header class="case-hero">
@@ -48,11 +49,11 @@
     <div class="container">
         <div class="case-stats">
             <div class="stat-card">
-                <h3>100 %</h3>
+                <h3><span class="count-up" data-target="100">0</span> %</h3>
                 <p>Nová vizuální identita a web</p>
             </div>
             <div class="stat-card">
-                <h3>3</h3>
+                <h3><span class="count-up" data-target="3">0</span></h3>
                 <p>Prémiová promo videa</p>
             </div>
             <div class="stat-card">
@@ -161,7 +162,7 @@
                         Nejlepší způsob, jak posoudit naši práci, je vidět ji v reálném prostředí. Klikněte na tlačítko níže a prohlédněte si, jak nová identita a natočené materiály dýchají na živém webu klienta.
                     </p>
                     
-                    <a href="https://homeawayzlonice.cz/" target="_blank" class="btn primary" style="font-size: 1.1rem; padding: 1.2rem 2.5rem; box-shadow: 0 10px 25px rgba(0, 248, 29, 0.2);">
+                    <a href="https://homeawayzlonice.netlify.app/" target="_blank" class="btn primary" style="font-size: 1.1rem; padding: 1.2rem 2.5rem; box-shadow: 0 10px 25px rgba(0, 248, 29, 0.2);">
                         Navštívit web Homeaway <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: 10px;"></i>
                     </a>
                 </div>
@@ -181,6 +182,41 @@
             <p>&copy; <span id="aktualni-rok"></span> Oživ.to. Všechna práva vyhrazena.</p>
         </div>
     </footer>
+
+<script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const counters = document.querySelectorAll('.count-up');
+            const speed = 100;
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        
+                        const updateCount = () => {
+                            const target = +counter.getAttribute('data-target');
+                            const count = +counter.innerText.replace(/\s/g, ''); 
+                            const inc = target / speed;
+
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count + inc).toLocaleString('cs-CZ');
+                                setTimeout(updateCount, 15);
+                            } else {
+                                counter.innerText = target.toLocaleString('cs-CZ');
+                            }
+                        };
+                        
+                        updateCount();
+                        observer.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 }); 
+
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+        });
+    </script>
 
     <script>document.getElementById('aktualni-rok').textContent = new Date().getFullYear();</script>
 </body>
