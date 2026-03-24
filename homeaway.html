@@ -21,7 +21,6 @@
                 <img src="ozivtonavbarlogo.png" alt="Oživ.to Logo" class="nav-logo-img" fetchpriority="high" decoding="sync">
             </a>
             
-            
             <button class="hamburger" aria-label="Menu">
                 <span class="line"></span>
                 <span class="line"></span>
@@ -29,21 +28,55 @@
             </button>
 
             <ul class="nav-links">
-                <li><a href="czechdesigners.html">Další studie</a></li>
+                <li><a href="kangelo.html">Další studie</a></li>
                 <li><a href="index.html">Zpět</a></li>
-            </ul> </div>
+            </ul> 
+        </div>
     </nav>
 
-    <header class="case-hero">
-        <div class="container relative" style="z-index: 2;">
-            <span class="section-tag">Komplexní Rebranding & Obsah</span>
-            <h1>Homeaway: Nová identita, web a <span class="highlight">prémiový vizuál</span> apartmánů</h1>
-            <p style="max-width: 800px; margin: 0 auto; color: var(--text-light); font-size: 1.15rem; line-height: 1.6;">
+    <style>
+        .homeaway-force-white h1, 
+        .homeaway-force-white h1 span, 
+        .homeaway-force-white p,
+        .homeaway-force-white .highlight {
+            color: #ffffff !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        .homeaway-force-white .highlight {
+            color: #00f81d !important; /* Zářivá zelená Oživ.to */
+        }
+        .homeaway-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75) !important;
+            z-index: 1;
+        }
+    </style>
+
+    <header class="case-hero homeaway-force-white" style="position: relative; background-image: url('homeawaybanner.png'); background-size: cover; background-position: center; padding: 10rem 0 8rem; overflow: hidden; background-color: #000;">
+        
+        <div class="homeaway-overlay"></div>
+
+        <div class="container" style="position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center; text-align: center;">
+            
+            <div style="background: white; padding: 15px 30px; border-radius: 15px; margin-bottom: 3rem; display: inline-block; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+                <img src="Logo-full.png" alt="Homeaway Logo" style="height: 70px; display: block; filter: none !important;">
+            </div>
+            
+            <span class="step-tag" style="background: #ffffff; border: 2px solid #00f81d; color: #111 !important; font-weight: 900; padding: 8px 20px; border-radius: 50px;">KOMPLEXNÍ REBRANDING & OBSAH</span>
+            
+            <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; margin-top: 2rem; text-shadow: 0 4px 20px rgba(0,0,0,0.9);">
+                Homeaway: Nová identita, web a <span class="highlight">prémiový vizuál</span> apartmánů
+            </h1>
+            
+            <p style="max-width: 800px; margin: 2rem auto 0; font-size: 1.3rem; line-height: 1.6; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">
                 Jak jsme zvedli hodnotu značky Homeaway vytvořením kompletní vizuální identity, moderního webu, profesionálních fotek pro Airbnb a strhujících promo videí.
             </p>
         </div>
-        
-        <div style="position: absolute; top: -20%; right: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(0,248,29,0.05) 0%, rgba(255,255,255,0) 70%); z-index: 1; border-radius: 50%;"></div>
     </header>
 
     <div class="container">
