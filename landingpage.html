@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garantované výsledky | Oživto</title>
+    
+    <meta name="description" content="Neschováváme se za prázdné sliby. Tvoříme marketing, weby a videa, která reálně prodávají.">
+    
+    <link rel="shortcut icon" type="image/jpeg" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+
+    <style>
+        /* PRÉMIOVÁ HLAVIČKA */
+        .hard-sell-hero {
+            background: radial-gradient(ellipse at top, #1a1a1a 0%, #000000 100%);
+            color: #ffffff;
+            padding: 14rem 0 8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .hard-sell-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hard-sell-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin: 1.5rem 0;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hard-sell-hero p {
+            color: #cccccc;
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .proof-section {
+            margin-top: -4rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .dark-stat-card {
+            background: #111;
+            border: 1px solid rgba(0, 248, 29, 0.2);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .dark-stat-card h3 { color: #00f81d; font-size: 2.5rem;}
+        .dark-stat-card p { color: #fff; margin-bottom: 5px; font-weight: 700;}
+        .dark-stat-card small { color: #888; font-weight: 600; display: block; margin-bottom: 1.5rem; }
+        
+        .btn-white {
+            background-color: #ffffff;
+            color: #111111;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-top: auto;
+            transition: all 0.3s ease;
+            border: 2px solid #ffffff;
+        }
+        .btn-white:hover {
+            background-color: transparent;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+        
+        .guarantee-section {
+            padding: 8rem 0;
+            background: var(--bg-main);
+        }
+        
+        .author-box {
+            position: relative;
+        }
+        .author-box img.main-photo {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            border: 2px solid rgba(0, 248, 29, 0.1);
+        }
+        .signature {
+            max-height: 150px;
+            margin-top: 2rem;
+            filter: grayscale(100%) contrast(200%);
+        }
+        body.dark-mode .signature {
+            filter: invert(1);
+        }
+
+        /* URGENTNÍ BOX PRO KALENDÁŘ */
+        .scarcity-alert {
+            background: #1a1a1a;
+            border-left: 4px solid #ff3333;
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            margin: 0 auto 2.5rem auto;
+            max-width: 1000px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        .pulsing-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #ff3333;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(255, 51, 51, 0.7);
+            animation: pulse-red 2s infinite;
+            flex-shrink: 0;
+        }
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 51, 51, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 51, 51, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 51, 51, 0); }
+        }
+        .scarcity-text {
+            color: #cccccc;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+        .scarcity-text strong {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        /* MOBILNÍ ÚPRAVY PRO GARANCI A FOTKU */
+        @media (max-width: 900px) {
+            .guarantee-section .split-layout {
+                gap: 2rem;
+            }
+            .guarantee-section .section-tag {
+                display: table;
+                margin: 0 auto 1rem auto;
+            }
+            .guarantee-section h2 {
+                text-align: center;
+            }
+            .signature {
+                max-height: 110px;
+                display: block;
+                margin: 2rem auto 0 auto;
+            }
+            .author-box {
+                max-width: 380px;
+                margin: 0 auto;
+            }
+            .scarcity-alert {
+                align-items: flex-start;
+                padding: 1rem;
+            }
+            .pulsing-dot {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="ozivtonavbarlogo.png" alt="Oživ.to Logo" class="nav-logo-img" fetchpriority="high" decoding="sync">
+            </a>
+            
+            <button class="hamburger" aria-label="Menu">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="kangelo.html" target="_blank">Výsledky</a></li>
+                <li><a href="#contact" class="btn-nav">Domluvit hovor</a></li>
+            </ul> 
+        </div>
+    </nav>
+
+    <header class="hard-sell-hero">
+        <div style="position: absolute; top: -35%; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(0,248,29,0.12) 0%, rgba(0,0,0,0) 65%); border-radius: 50%; z-index: 1; pointer-events: none;"></div>
+        
+        <div class="container relative" style="z-index: 2;">
+            <span class="step-tag" style="background: rgba(255,255,255,0.05); border: 2px solid #00f81d; color: #00f81d !important; font-weight: 900; padding: 8px 20px; border-radius: 50px; position: relative; z-index: 2;">PŘESTAŇTE PÁLIT PENÍZE</span>
+            
+            <h1>Váš marketing buď <span class="highlight" style="color: #00f81d !important;">prodává</span>,<br>nebo prodělává.</h1>
+            
+            <p>90 % firem vyhazuje desetitisíce za „hezká“ videa a weby, které nikoho nezajímají. My netvoříme umění. Stavíme funkční prodejní ekosystémy, které z cizinců dělají platící klienty.</p>
+            
+            <a href="#contact" class="btn primary" style="font-size: 1.1rem; padding: 1.2rem 3rem; position: relative; z-index: 2;">Chci reálné výsledky</a>
+        </div>
+    </header>
+
+    <div class="container proof-section">
+        <div class="case-stats" style="margin: 0 auto; max-width: 1000px;">
+            <div class="stat-card dark-stat-card">
+                <div>
+                    <h3>1 000 000+</h3>
+                    <p>Organických zhlédnutí pro <br>Czech Designers</p>
+                    <small>100% návratnost bez placené reklamy.</small>
+                </div>
+                <a href="czechdesigners.html" class="btn-white" target="_blank">Zobrazit případovku <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+            </div>
+            
+            <div class="stat-card dark-stat-card">
+                <div>
+                    <h3>85 000+</h3>
+                    <p>IG zhlédnutí pro <br>značku Kangelo</p>
+                    <small>Z pouhých 6 AI Reels.</small>
+                </div>
+                <a href="kangelo.html" class="btn-white" target="_blank">Zobrazit případovku <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <section class="guarantee-section">
+        <div class="container split-layout">
+            <div class="text-block">
+                <span class="section-tag">BEZ VÝMLUV</span>
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 1.5rem;">Nedělám kompromisy. <br><span class="highlight">Stojím si za tím.</span></h2>
+                
+                <p style="font-size: 1.15rem; color: var(--text-light); margin-bottom: 1.5rem;">Agentury vám naslibují hory doly a pak se schovávají za "budování brandu", když nepřijdou prodeje. U mě tohle nečekejte.</p>
+                
+                <div class="highlight-box" style="margin: 2rem 0; padding: 1.5rem; background: rgba(0, 248, 29, 0.05); border-left: 4px solid var(--accent-primary);">
+                    <p style="margin: 0; font-weight: 600; color: var(--text-main);">Pro klienta Czech Designers jsme vybudovali YouTube funnel, který přivedl vysoce relevantní platící zákazníky bez jediné koruny do reklamy.</p>
+                </div>
+
+                <p style="font-size: 1.15rem; color: var(--text-light); margin-bottom: 1.5rem;">Když majitel Kangela neměl čas natáčet, naklonovali jsme mu hlas pomocí AI a vygenerovali virální sérii, která doslova ovládla Instagram.</p>
+                
+                <p style="font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin-top: 2rem;">Pokud nebudu přesvědčený, že vám dokážu vydělat peníze, spolupráci rovnou odmítnu.</p>
+                
+                <img src="OP.png" alt="Podpis Ondřej Parýzek" class="signature">
+            </div>
+            
+            <div class="author-box">
+                <img src="stojimsizatim.jpg" alt="Ondřej Parýzek - Oživ.to" class="main-photo">
+                
+                <div style="text-align: center; margin-top: 1rem;">
+                    <strong style="color: var(--text-main); display: block;">Ondřej Parýzek</strong>
+                    <span style="color: var(--text-light); font-size: 0.9rem;">Zakladatel Oživto</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="padding: 8rem 0; background-color: var(--bg-secondary);">
+        <div class="container contact-wrapper">
+            <div class="contact-info">
+                <span class="section-tag">REZERVOVAT HOVOR</span>
+                <h2>Pojďme to probrat.</h2>
+                <p>Vyberte si termín v mém kalendáři. Osobně se podívám na váš byznys a na rovinu vám řeknu, kde vám utíkají peníze. Žádní obchoďáci, žádné omáčky – na hovoru se potkáte přímo se mnou.</p>
+                
+                <div class="direct-contact">
+                    <a href="mailto:ondrej@jsmeozivto.cz" class="contact-link"><i class="fa-solid fa-envelope"></i> ondrej@jsmeozivto.cz</a>
+                    <a href="tel:+420723871837" class="contact-link"><i class="fa-solid fa-phone"></i> +420 723 871 837</a>
+                </div>
+            </div>
+
+            <div style="width: 100%;">
+                <!-- BOX UPOZORNĚNÍ NA KAPACITU -->
+                <div class="scarcity-alert">
+                    <div class="pulsing-dot"></div>
+                    <p class="scarcity-text">
+                        <strong>Omezená kapacita:</strong> Měsíčně přibírám pouze 3 nové klienty, abych mohl garantovat 100% nasazení a doručit výsledky, za kterými si stojím. Pokud vidíte volný termín, doporučuji jednat rychle.
+                    </p>
+                </div>
+
+                <div class="cal-wrapper">
+                    <!-- Cal inline embed code begins -->
+                    <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-strategicky-hovor-ondrej-paryzek"></div>
+                    <script type="text/javascript">
+                      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+                    Cal("init", "strategicky-hovor-ondrej-paryzek", {origin:"https://app.cal.com"});
+
+                      Cal.ns["strategicky-hovor-ondrej-paryzek"]("inline", {
+                        elementOrSelector:"#my-cal-inline-strategicky-hovor-ondrej-paryzek",
+                        config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"},
+                        calLink: "ozivto/strategicky-hovor-ondrej-paryzek",
+                      });
+
+                      Cal.ns["strategicky-hovor-ondrej-paryzek"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#46f81e"},"dark":{"cal-brand":"#46f81e"}},"hideEventTypeDetails":false,"layout":"month_view"});
+                      </script>
+                      <!-- Cal inline embed code ends -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="logo">
+                    <img src="OZIV.TO.jpeg" alt="Oživ.to Logo" style="max-height: 60px; width: auto;">
+                </a>
+                <p style="margin-top: 10px; font-size: 0.9rem;">
+                    Pomáháme firmám růst skrze moderní video marketing a strategie na sociálních sítích.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Fakturační údaje</h4>
+                <p><strong>Ondřej Parýzek</strong></p>
+                <p>IČO: 23559624</p>
+                <p>Sídlo: Zeměchy 33, 440 01 Louny</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Kontakt</h4>
+                <p><i class="fa-solid fa-envelope"></i> <a href="mailto:ondrej@jsmeozivto.cz">ondrej@jsmeozivto.cz</a></p>
+                <p><i class="fa-solid fa-phone"></i> <a href="tel:+420723871837">+420 723 871 837</a></p>
+                <div class="socials">
+                    <a href="https://www.instagram.com/ozivto.cz/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/ozivto/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.facebook.com/ozivto.cz/"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; <span id="aktualni-rok"></span> Oživto. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('aktualni-rok').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
