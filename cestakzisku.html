@@ -368,6 +368,59 @@
                 </div>
             </div>
         </div>
+
+        <div id="cookie-banner" class="cookie-banner hidden">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h3>Nastavení soukromí</h3>
+                <p>
+                    Používáme cookies pro zajištění správného chodu webu a s vaším souhlasem i pro analýzu návštěvnosti a marketing. 
+                    <a href="cookies.html">Více informací o tom, jak sbíráme cookies</a>.
+                </p>
+            </div>
+            <div class="cookie-btns">
+                <button id="cookie-reject" class="btn-outline">Odmítnout</button>
+                <button id="cookie-settings-btn" class="btn-outline">Nastavení</button>
+                <button id="cookie-accept" class="btn-primary">Přijmout vše</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookie-modal" class="cookie-modal hidden">
+        <div class="cookie-modal-content">
+            <h3>Předvolby cookies</h3>
+            <p>Zde si můžete upravit nastavení jednotlivých typů cookies.</p>
+            
+            <div class="cookie-option">
+                <input type="checkbox" id="cookie-necessary" checked disabled>
+                <label for="cookie-necessary">
+                    <strong>Nezbytné (Technické)</strong><br>
+                    <small>Nutné pro fungování webu. Nelze vypnout.</small>
+                </label>
+            </div>
+
+            <div class="cookie-option">
+                <input type="checkbox" id="cookie-analytics">
+                <label for="cookie-analytics">
+                    <strong>Analytické</strong><br>
+                    <small>Pomáhají nám vylepšovat web měřením návštěvnosti.</small>
+                </label>
+            </div>
+
+            <div class="cookie-option">
+                <input type="checkbox" id="cookie-marketing">
+                <label for="cookie-marketing">
+                    <strong>Marketingové</strong><br>
+                    <small>Pro zobrazení relevantní reklamy.</small>
+                </label>
+            </div>
+
+            <div class="cookie-modal-btns">
+                <button id="cookie-save-preferences" class="btn-primary">Uložit nastavení</button>
+                <button id="cookie-close-modal" class="btn-text">Zavřít</button>
+            </div>
+        </div>
+    </div>
         
         <div class="footer-bottom">
             <p>&copy; <span id="aktualni-rok"></span> Oživto. Všechna práva vyhrazena.</p>
@@ -379,3 +432,4 @@
     </script>
 </body>
 </html>
+
