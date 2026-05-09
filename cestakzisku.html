@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garantované výsledky | Oživto</title>
+    <title>Tajný systém pro realitní makléře | Oživto</title>
     
-    <meta name="description" content="Neschováváme se za prázdné sliby. Tvoříme marketing, weby a videa, která reálně prodávají.">
+    <meta name="description" content="Kompletní video marketingová strategie pro makléře. Budujeme osobní brand, generujeme leady a prodáváme nemovitosti. Tvoříme prémiové prezentace.">
     
     <link rel="shortcut icon" type="image/jpeg" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,7 +73,7 @@
             flex-direction: column;
             justify-content: space-between;
         }
-        .dark-stat-card h3 { color: #00f81d; font-size: 2.5rem;}
+        .dark-stat-card h3 { color: #00f81d; font-size: 2.2rem;}
         .dark-stat-card p { color: #fff; margin-bottom: 5px; font-weight: 700;}
         .dark-stat-card small { color: #888; font-weight: 600; display: block; margin-bottom: 1.5rem; }
         
@@ -165,6 +165,23 @@
             font-weight: 700;
         }
 
+        /* ODZNAK AUTORITY V HERO SEKCI */
+        .authority-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            color: #ccc;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
         /* MOBILNÍ ÚPRAVY PRO GARANCI A FOTKU */
         @media (max-width: 900px) {
             .guarantee-section .split-layout {
@@ -186,7 +203,6 @@
                 max-width: 380px;
                 margin: 0 auto;
             }
-            /* Úpravy pro upozornění kapacity */
             .desktop-alert {
                 display: none !important;
             }
@@ -197,6 +213,11 @@
             }
             .pulsing-dot {
                 margin-top: 5px;
+            }
+            .authority-badge {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
             }
         }
     </style>
@@ -226,13 +247,19 @@
         <div style="position: absolute; top: -35%; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(0,248,29,0.12) 0%, rgba(0,0,0,0) 65%); border-radius: 50%; z-index: 1; pointer-events: none;"></div>
         
         <div class="container relative" style="z-index: 2;">
-            <span class="step-tag" style="background: rgba(255,255,255,0.05); border: 2px solid #00f81d; color: #00f81d !important; font-weight: 900; padding: 8px 20px; border-radius: 50px; position: relative; z-index: 2;">PŘESTAŇTE PÁLIT PENÍZE</span>
+            <span class="step-tag" style="background: rgba(255,255,255,0.05); border: 2px solid #00f81d; color: #00f81d !important; font-weight: 900; padding: 8px 20px; border-radius: 50px; position: relative; z-index: 2;">EXKLUZIVNĚ PRO MAKLÉŘE</span>
             
-            <h1>Váš marketing buď <span class="highlight" style="color: #00f81d !important;">prodává</span>,<br>nebo prodělává.</h1>
+            <h1>Získejte tajný systém, který <span class="highlight" style="color: #00f81d !important;">generuje leady</span><br>a prodává nemovitosti za vás.</h1>
             
-            <p>90 % firem vyhazuje desetitisíce za „hezká“ videa a weby, které nikoho nezajímají. My netvoříme umění. Stavíme funkční prodejní ekosystémy, které z cizinců dělají platící klienty.</p>
+            <p>Většina makléřů natáčí nudné prohlídky na mobil a diví se, že nezískávají exkluzivní náběry. Objevte kompletní strategii prověřenou top makléři, která buduje osobní brand a mění cizince na klienty.</p>
             
-            <a href="#contact" class="btn primary" style="font-size: 1.1rem; padding: 1.2rem 3rem; position: relative; z-index: 2;">Chci reálné výsledky</a>
+            <a href="#contact" class="btn primary" style="font-size: 1.1rem; padding: 1.2rem 3rem; position: relative; z-index: 2;">Chci ovládnout svůj region!</a>
+            
+            <br>
+            <div class="authority-badge">
+                <i class="fa-solid fa-shield-halved" style="color: #00f81d;"></i>
+                Spolupracovali jsme s makléři z <strong style="color: #fff;">RE/MAX</strong>, editovali pro <strong style="color: #fff;">Artema Saykina</strong> a zvýšili prodeje pronájmů v <strong style="color: #fff;">Homeaway</strong>.
+            </div>
         </div>
     </header>
 
@@ -240,20 +267,20 @@
         <div class="case-stats" style="margin: 0 auto; max-width: 1000px;">
             <div class="stat-card dark-stat-card">
                 <div>
-                    <h3>1 000 000+</h3>
-                    <p>Organických zhlédnutí pro <br>Czech Designers</p>
-                    <small>100% návratnost bez placené reklamy.</small>
+                    <h3>Zvýšení prodejů</h3>
+                    <p>Homeaway Airbnb</p>
+                    <small>Pro společnost Homeaway, která pronajímá interiéry přes Airbnb, jsme vytvořili profi prohlídky, které zvedly úroveň prezentace a reálně zvýšily prodeje.</small>
                 </div>
-                <a href="czechdesigners.html" class="btn-white" target="_blank">Zobrazit případovku <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-white">Získat stejnou kvalitu <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
             </div>
             
             <div class="stat-card dark-stat-card">
                 <div>
-                    <h3>85 000+</h3>
-                    <p>IG zhlédnutí pro <br>značku Kangelo</p>
-                    <small>Z pouhých 6 AI Reels.</small>
+                    <h3>Organické prodeje</h3>
+                    <p>Realitní design a konzultace</p>
+                    <small>Pro klienta v realitním a designérském oboru jsme vytvořili strategii, která začala organicky a bez placené reklamy prodávat jeho konzultace.</small>
                 </div>
-                <a href="kangelo.html" class="btn-white" target="_blank">Zobrazit případovku <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+                <a href="#contact" class="btn-white">Chci vidět systém <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
             </div>
         </div>
     </div>
@@ -261,18 +288,18 @@
     <section class="guarantee-section">
         <div class="container split-layout">
             <div class="text-block">
-                <span class="section-tag">BEZ VÝMLUV</span>
-                <h2 style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 1.5rem;">Nedělám kompromisy. <br><span class="highlight">Stojím si za tím.</span></h2>
+                <span class="section-tag">TAJNÝ SYSTÉM</span>
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 1.5rem;">Znám strategii, která <br><span class="highlight">prodává reality.</span></h2>
                 
-                <p style="font-size: 1.15rem; color: var(--text-light); margin-bottom: 1.5rem;">Agentury vám naslibují hory doly a pak se schovávají za "budování brandu", když nepřijdou prodeje. U mě tohle nečekejte.</p>
+                <p style="font-size: 1.15rem; color: var(--text-light); margin-bottom: 1.5rem;">Editovat video a prolétat dronem oknem umí dneska každý. Ale vytvořit ucelenou marketingovou strategii, která buduje vaši autoritu a automaticky sbírá leady? To je náš tajný systém.</p>
                 
                 <div class="highlight-box" style="margin: 2rem 0; padding: 1.5rem; background: rgba(0, 248, 29, 0.05); border-left: 4px solid var(--accent-primary);">
-                    <p style="margin: 0; font-weight: 600; color: var(--text-main);">Pro klienta Czech Designers jsme vybudovali YouTube funnel, který přivedl vysoce relevantní platící zákazníky bez jediné koruny do reklamy.</p>
+                    <p style="margin: 0; font-weight: 600; color: var(--text-main);">Stříhal jsem obsah pro absolutní špičky jako je Artem Saykin a spolupracoval s makléři z RE/MAXu. Pro Homeaway, kteří pronajímají interiéry přes Airbnb, jsme natočili profi prohlídky, které prokazatelně zvýšily jejich prodeje. Pro dalšího klienta na pomezí realit a designu jsme postavili strategii, která prodává konzultace čistě organicky.</p>
                 </div>
 
-                <p style="font-size: 1.15rem; color: var(--text-light); margin-bottom: 1.5rem;">Když majitel Kangela neměl čas natáčet, naklonovali jsme mu hlas pomocí AI a vygenerovali virální sérii, která doslova ovládla Instagram.</p>
+                <p style="font-size: 1.15rem; color: var(--text-light); margin-bottom: 1.5rem;">Nehledejte jen kameramana. Hledejte strategického partnera. Nejde o to mít na profilu hezké záběry, jde o psychologii prodeje přetavenou do videa a systému, který prodává nemovitosti za vás, i když zrovna spíte.</p>
                 
-                <p style="font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin-top: 2rem;">Pokud nebudu přesvědčený, že vám dokážu vydělat peníze, spolupráci rovnou odmítnu.</p>
+                <p style="font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin-top: 2rem;">Pokud nebudu přesvědčený, že náš systém zmnohonásobí vaše provize, spolupráci rovnou odmítnu.</p>
                 
                 <img src="OP.png" alt="Podpis Ondřej Parýzek" class="signature">
             </div>
@@ -282,7 +309,7 @@
                 
                 <div style="text-align: center; margin-top: 1rem;">
                     <strong style="color: var(--text-main); display: block;">Ondřej Parýzek</strong>
-                    <span style="color: var(--text-light); font-size: 0.9rem;">Zakladatel Oživto</span>
+                    <span style="color: var(--text-light); font-size: 0.9rem;">Specialista na realitní marketing</span>
                 </div>
             </div>
         </div>
@@ -291,27 +318,25 @@
     <section id="contact" style="padding: 8rem 0; background-color: var(--bg-secondary);">
         <div class="container contact-wrapper">
             <div class="contact-info">
-                <span class="section-tag">REZERVOVAT HOVOR</span>
+                <span class="section-tag">STRATEGICKÝ HOVOR</span>
                 <h2>Pojďme to probrat.</h2>
-                <p>Vyberte si termín v mém kalendáři. Osobně se podívám na váš byznys a na rovinu vám řeknu, kde vám utíkají peníze. Žádní obchoďáci, žádné omáčky – na hovoru se potkáte přímo se mnou.</p>
+                <p>Vyberte si termín v mém kalendáři. Ukážu vám, jak náš tajný systém funguje v praxi a probereme, jak ho můžeme nasadit na váš realitní byznys pro získání nových leadů. Žádné omáčky – na hovoru se potkáte přímo se mnou.</p>
                 
                 <div class="direct-contact">
                     <a href="mailto:ondrej@jsmeozivto.cz" class="contact-link"><i class="fa-solid fa-envelope"></i> ondrej@jsmeozivto.cz</a>
                     <a href="tel:+420723871837" class="contact-link"><i class="fa-solid fa-phone"></i> +420 723 871 837</a>
                 </div>
 
-                <!-- BOX UPOZORNĚNÍ NA KAPACITU (PC ZOBRAZENÍ - pod kontaktem) -->
                 <div class="scarcity-alert desktop-alert">
                     <div class="pulsing-dot"></div>
                     <p class="scarcity-text">
-                        <strong>Omezená kapacita:</strong> Měsíčně přibírám pouze 3 nové klienty, abych mohl garantovat 100% nasazení a doručit výsledky, za kterými si stojím. Pokud vidíte volný termín, doporučuji jednat rychle.
+                        <strong>Omezená kapacita:</strong> Měsíčně přibírám pouze 3 nové makléře, abych mohl garantovat 100% nasazení a doručit výsledky, za kterými si stojím. Pokud vidíte volný termín, doporučuji jednat rychle.
                     </p>
                 </div>
             </div>
 
             <div style="width: 100%;">
                 <div class="cal-wrapper">
-                    <!-- Cal inline embed code begins -->
                     <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-strategicky-hovor-ondrej-paryzek"></div>
                     <script type="text/javascript">
                       (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
@@ -325,14 +350,12 @@
 
                       Cal.ns["strategicky-hovor-ondrej-paryzek"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#46f81e"},"dark":{"cal-brand":"#46f81e"}},"hideEventTypeDetails":false,"layout":"month_view"});
                       </script>
-                      <!-- Cal inline embed code ends -->
-                </div>
+                      </div>
 
-                <!-- BOX UPOZORNĚNÍ NA KAPACITU (MOBILNÍ ZOBRAZENÍ - pod kalendářem) -->
                 <div class="scarcity-alert mobile-alert">
                     <div class="pulsing-dot"></div>
                     <p class="scarcity-text">
-                        <strong>Omezená kapacita:</strong> Měsíčně přibírám pouze 3 nové klienty, abych mohl garantovat 100% nasazení a doručit výsledky, za kterými si stojím. Pokud vidíte volný termín, doporučuji jednat rychle.
+                        <strong>Omezená kapacita:</strong> Měsíčně přibírám pouze 3 nové makléře, abych mohl garantovat 100% nasazení a doručit výsledky, za kterými si stojím. Pokud vidíte volný termín, doporučuji jednat rychle.
                     </p>
                 </div>
             </div>
@@ -343,8 +366,8 @@
         <div class="container footer-grid">
             <div class="footer-col">
                 <a href="index.html" class="logo">
-                    <img src="OZIV.TO.jpeg" alt="Oživ.to Logo" style="max-height: 60px; width: auto;">
-                </a>
+                <img src="OZIV.TO.jpeg" alt="Oživ.to Logo" class="nav-logo-img" fetchpriority="high" decoding="sync">
+            </a>
                 <p style="margin-top: 10px; font-size: 0.9rem;">
                     Pomáháme firmám růst skrze moderní video marketing a strategie na sociálních sítích.
                 </p>
@@ -355,12 +378,24 @@
                 <p><strong>Ondřej Parýzek</strong></p>
                 <p>IČO: 23559624</p>
                 <p>Sídlo: Zeměchy 33, 440 01 Louny</p>
+                <p style="margin-top: 10px; font-size: 0.8rem; color: #666;">Fyzická osoba zapsaná v živnostenském rejstříku.<br>Nejsem plátce DPH.</p>
             </div>
 
             <div class="footer-col">
-                <h4>Kontakt</h4>
-                <p><i class="fa-solid fa-envelope"></i> <a href="mailto:ondrej@jsmeozivto.cz">ondrej@jsmeozivto.cz</a></p>
+                <h4>Kontakt & Info</h4>
+                <p><i class="fa-solid fa-envelope"></i> <a href="mailto:info@jsmeozivto.cz">info@jsmeozivto.cz</a></p>
                 <p><i class="fa-solid fa-phone"></i> <a href="tel:+420723871837">+420 723 871 837</a></p>
+                
+                <div style="margin-top: 15px; margin-bottom: 15px;">
+                    <a href="gdpr.html" style="text-decoration: underline; font-size: 0.9rem; color: #a0a0a0;">Zásady ochrany osobních údajů</a>
+                </div>
+                <div style="margin-top: 15px; margin-bottom: 15px;">
+                    <a href="cookies.html" style="text-decoration: underline; font-size: 0.9rem; color: #a0a0a0;">Zásady používání cookies</a>
+                </div>
+                <div style="margin-top: 15px; margin-bottom: 15px;">
+                    <a href="obchodnipodminky.html" style="text-decoration: underline; font-size: 0.9rem; color: #a0a0a0;">Obchodní podmínky</a>
+                </div>
+
                 <div class="socials">
                     <a href="https://www.instagram.com/ozivto.cz/"><i class="fa-brands fa-instagram"></i></a>
                     <a href="https://www.linkedin.com/company/ozivto/"><i class="fa-brands fa-linkedin"></i></a>
@@ -368,8 +403,14 @@
                 </div>
             </div>
         </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; <span id="aktualni-rok"></span> Oživto. Všechna práva vyhrazena.</p>
+        </div>
 
-        <div id="cookie-banner" class="cookie-banner hidden">
+    </footer>
+
+    <div id="cookie-banner" class="cookie-banner hidden">
         <div class="cookie-content">
             <div class="cookie-text">
                 <h3>Nastavení soukromí</h3>
@@ -422,14 +463,8 @@
         </div>
     </div>
         
-        <div class="footer-bottom">
-            <p>&copy; <span id="aktualni-rok"></span> Oživto. Všechna práva vyhrazena.</p>
-        </div>
-    </footer>
-
     <script>
         document.getElementById('aktualni-rok').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
-
