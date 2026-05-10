@@ -2,6 +2,7 @@
 <html lang="cs">
 <head>
     <script defer src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Czech Designers - Případová studie | Oživto</title>
@@ -47,7 +48,7 @@
             visibility: visible !important;
         }
         .czech-force-white .highlight {
-            color: #00f81d !important; /* Zářivá zelená Oživ.to */
+            color: #00f81d !important;
         }
         .czech-overlay {
             position: absolute;
@@ -176,6 +177,13 @@
 
             <p>Co je ale důležitější pro byznys: YouTube kanál získal téměř <strong>1 000 vysoce relevantních odběratelů</strong>. Nejsou to jen náhodní sledující, ale přesně cílená skupina potenciálních zákazníků. Funnel zásadně ušetřil čas klienta na prodejních schůzkách – na konzultace totiž začali chodit lidé, kteří už měli nakoukané hodiny obsahu, znali hodnotu klienta a rovnou vytahovali peněženku. A to vše s nulovým rozpočtem na placenou propagaci videí.</p>
 
+            <h3 style="margin-top: 4rem;">Stabilní přísun klientů z organiky (Ukázka za 6 měsíců)</h3>
+            <p>Systém nezafungoval jen jednorázově. Zde je reálný pohled na to, jak trychtýř dodával uzavřené obchody (konzultace) naprosto automaticky, každý měsíc, bez použití reklam.</p>
+
+            <div class="chart-container" style="position: relative; height: 350px; width: 100%; margin: 2rem 0; padding: 1.5rem; background: #ffffff; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05);">
+                <canvas id="organicSalesChart"></canvas>
+            </div>
+
             <div class="center" style="margin-top: 5rem; padding-top: 4rem; border-top: 1px solid #eee;">
                 <h3 style="margin-bottom: 1.5rem; font-size: 1.8rem;">Chcete postavit podobný prodejní automat?</h3>
                 <p style="margin-bottom: 2rem;">Nebudeme vám jen natáčet hezká videa. Postavíme vám strategii, která reálně generuje poptávky.</p>
@@ -191,10 +199,86 @@
         </div>
     </footer>
 
-<script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const ctx = document.getElementById('organicSalesChart').getContext('2d');
+            
+            Chart.defaults.font.family = "'Montserrat', sans-serif";
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Říjen', 'Listopad', 'Prosinec', 'Leden', 'Únor', 'Březen'],
+                    datasets: [{
+                        label: 'Prodané konzultace',
+                        data: [2, 3, 2, 2, 2, 3],
+                        backgroundColor: 'rgba(0, 248, 29, 0.15)',
+                        borderColor: 'rgba(0, 248, 29, 1)',
+                        borderWidth: 2,
+                        borderRadius: 6,
+                        hoverBackgroundColor: 'rgba(0, 248, 29, 0.3)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 4,
+                            ticks: {
+                                stepSize: 1,
+                                font: {
+                                    size: 13,
+                                    weight: '600'
+                                },
+                                color: '#555'
+                            },
+                            grid: {
+                                color: 'rgba(0,0,0,0.05)',
+                                drawBorder: false
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                font: {
+                                    size: 13,
+                                    weight: '600'
+                                },
+                                color: '#333'
+                            },
+                            grid: {
+                                display: false,
+                                drawBorder: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: '#111',
+                            titleFont: { size: 14, family: 'Montserrat', weight: '700' },
+                            bodyFont: { size: 14, family: 'Montserrat' },
+                            padding: 12,
+                            displayColors: false,
+                            callbacks: {
+                                label: function(context) {
+                                    return context.raw + ' prodané konzultace';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script>
         document.addEventListener("DOMContentLoaded", () => {
             const counters = document.querySelectorAll('.count-up');
-            const speed = 100; // Čím nižší číslo, tím rychlejší animace
+            const speed = 100;
 
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
@@ -203,23 +287,22 @@
                         
                         const updateCount = () => {
                             const target = +counter.getAttribute('data-target');
-                            const count = +counter.innerText.replace(/\s/g, ''); // Odstranění mezer pro výpočet
+                            const count = +counter.innerText.replace(/\s/g, ''); 
                             const inc = target / speed;
 
                             if (count < target) {
-                                // Zaokrouhlení nahoru a přidání české formátovací mezery
                                 counter.innerText = Math.ceil(count + inc).toLocaleString('cs-CZ');
                                 setTimeout(updateCount, 15);
                             } else {
-                                counter.innerText = target.toLocaleString('cs-CZ'); // Finální číslo
+                                counter.innerText = target.toLocaleString('cs-CZ');
                             }
                         };
                         
                         updateCount();
-                        observer.unobserve(counter); // Animace proběhne jen jednou
+                        observer.unobserve(counter);
                     }
                 });
-            }, { threshold: 0.5 }); // Spustí se, až bude karta z poloviny viditelná
+            }, { threshold: 0.5 }); 
 
             counters.forEach(counter => {
                 observer.observe(counter);
