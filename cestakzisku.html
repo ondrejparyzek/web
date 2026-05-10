@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tajný systém pro realitní makléře | Oživto</title>
+    <title>Video Marketing pro realitní makléře | Oživto</title>
     
     <meta name="description" content="Kompletní video marketingová strategie pro makléře. Budujeme osobní brand, generujeme leady a prodáváme nemovitosti. Tvoříme prémiové prezentace.">
     
@@ -63,6 +63,15 @@
             position: relative;
             z-index: 10;
         }
+
+        /* ROZLOŽENÍ KARET (Tabulka) */
+        .case-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 0 auto;
+            max-width: 1000px;
+        }
         
         .dark-stat-card {
             background: #111;
@@ -72,10 +81,40 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            padding: 2.5rem;
+            border-radius: 16px;
+            text-align: left;
         }
-        .dark-stat-card h3 { color: #00f81d; font-size: 2.2rem;}
-        .dark-stat-card p { color: #fff; margin-bottom: 5px; font-weight: 700;}
-        .dark-stat-card small { color: #888; font-weight: 600; display: block; margin-bottom: 1.5rem; }
+        
+        .dark-stat-card .client-tag {
+            display: inline-block;
+            padding: 6px 12px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 6px;
+            color: #ccc;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .dark-stat-card h3 { 
+            color: #00f81d; 
+            font-size: 2rem; 
+            line-height: 1.2; 
+            margin-bottom: 1rem;
+        }
+        
+        .dark-stat-card small { 
+            color: #aaa; 
+            font-weight: 500; 
+            display: block; 
+            margin-bottom: 2rem; 
+            font-size: 0.95rem; 
+            line-height: 1.6;
+        }
         
         .btn-white {
             background-color: #ffffff;
@@ -89,6 +128,8 @@
             margin-top: auto;
             transition: all 0.3s ease;
             border: 2px solid #ffffff;
+            text-align: center;
+            display: inline-block;
         }
         .btn-white:hover {
             background-color: transparent;
@@ -249,57 +290,60 @@
         <div class="container relative" style="z-index: 2;">
             <span class="step-tag" style="background: rgba(255,255,255,0.05); border: 2px solid #00f81d; color: #00f81d !important; font-weight: 900; padding: 8px 20px; border-radius: 50px; position: relative; z-index: 2;">EXKLUZIVNĚ PRO MAKLÉŘE</span>
             
-            <h1>Získejte tajný systém, který <span class="highlight" style="color: #00f81d !important;">generuje leady</span><br>a prodává nemovitosti za vás.</h1>
+            <h1>Systém, který <span class="highlight" style="color: #00f81d !important;">generuje leady</span><br>a prodává nemovitosti za vás.</h1>
             
-            <p>Většina makléřů natáčí nudné prohlídky na mobil a diví se, že nezískávají exkluzivní náběry. Objevte kompletní strategii prověřenou top makléři, která buduje osobní brand a mění cizince na klienty.</p>
+            <p>Většina makléřů natáčí nudné prohlídky na mobil a diví se, že nezískávají exkluzivní náběry. Objevte kompletní strategii prověřenou top makléři, která buduje osobní brand a mění diváky na klienty.</p>
             
-            <a href="#contact" class="btn primary" style="font-size: 1.1rem; padding: 1.2rem 3rem; position: relative; z-index: 2;">Chci ovládnout svůj region!</a>
+            <a href="#contact" class="btn primary" style="font-size: 1.1rem; padding: 1.2rem 3rem; position: relative; z-index: 2;">Chci ovládnout svůj region</a>
             
             <br>
             <div class="authority-badge">
                 <i class="fa-solid fa-shield-halved" style="color: #00f81d;"></i>
-                Spolupracovali jsme s makléři z <strong style="color: #fff;">RE/MAX</strong>, editovali pro <strong style="color: #fff;">Artema Saykina</strong> a zvýšili prodeje pronájmů v <strong style="color: #fff;">Homeaway</strong>.
+                <span>Spolupracoval jsem s makléři z <strong style="color: #fff;">RE/MAX</strong>, editoval videa pro <strong style="color: #fff;">Artema Saykina</strong>, či <strong style="color: #fff;">Brosfin</strong> a zvýšil prodeje pronájmů v <strong style="color: #fff;">Homeaway</strong>.</span>
             </div>
         </div>
     </header>
 
     <div class="container proof-section">
-        <div class="case-stats" style="margin: 0 auto; max-width: 1000px;">
+        <div class="case-stats">
+            
             <div class="stat-card dark-stat-card">
                 <div>
-                    <h3>Zvýšení prodejů</h3>
-                    <p>Homeaway Airbnb</p>
-                    <small>Pro společnost Homeaway, která pronajímá interiéry přes Airbnb, jsme vytvořili profi prohlídky, které zvedly úroveň prezentace a reálně zvýšily prodeje.</small>
+                    <span class="client-tag"><i class="fa-solid fa-star" style="margin-right: 5px;"></i> Artem Saykin & RE/MAX</span>
+                    <h3>Silná autorita<br>a osobní brand</h3>
+                    <small>Postaral jsem se o profesionální střih a editaci videí pro top makléře na trhu v síti RE/MAX včetně Artema. Stavím obsah a strategii, která buduje důvěru a prezentuje makléře jako prémiovou volbu.</small>
+                </div>
+                <a href="#contact" class="btn-white">Chci prémiový brand <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+            </div>
+
+            <div class="stat-card dark-stat-card">
+                <div>
+                    <span class="client-tag"><i class="fa-solid fa-house" style="margin-right: 5px;"></i> KLIENT: Homeaway (Airbnb)</span>
+                    <h3>Více rezervací<br>a prémiová prezentace</h3>
+                    <small>Pro společnost pronajímající interiéry přes Airbnb jsme vytvořili prémiové video prohlídky, které jsem stříhal a ladil strukturu. Luxusní prezentace okamžitě zvedla atraktivitu nemovitostí a reálně zvýšila prodeje.</small>
                 </div>
                 <a href="#contact" class="btn-white">Získat stejnou kvalitu <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
             </div>
             
-            <div class="stat-card dark-stat-card">
-                <div>
-                    <h3>Organické prodeje</h3>
-                    <p>Realitní design a konzultace</p>
-                    <small>Pro klienta v realitním a designérském oboru jsme vytvořili strategii, která začala organicky a bez placené reklamy prodávat jeho konzultace.</small>
-                </div>
-                <a href="#contact" class="btn-white">Chci vidět systém <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
-            </div>
         </div>
     </div>
 
     <section class="guarantee-section">
         <div class="container split-layout">
             <div class="text-block">
-                <span class="section-tag">TAJNÝ SYSTÉM</span>
+                <span class="section-tag">ZNALOST OBORU</span>
                 <h2 style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 1.5rem;">Znám strategii, která <br><span class="highlight">prodává reality.</span></h2>
                 
-                <p style="font-size: 1.15rem; color: var(--text-light); margin-bottom: 1.5rem;">Editovat video a prolétat dronem oknem umí dneska každý. Ale vytvořit ucelenou marketingovou strategii, která buduje vaši autoritu a automaticky sbírá leady? To je náš tajný systém.</p>
+                <p style="font-size: 1.15rem; color: var(--text-light); margin-bottom: 1.5rem;">Editovat video a prolétat dronem oknem umí dneska každý. Ale vytvořit ucelenou marketingovou strategii, která buduje vaši autoritu a automaticky sbírá leady? To je ověřená strategie, která dává smysl.</p>
+
                 
                 <div class="highlight-box" style="margin: 2rem 0; padding: 1.5rem; background: rgba(0, 248, 29, 0.05); border-left: 4px solid var(--accent-primary);">
-                    <p style="margin: 0; font-weight: 600; color: var(--text-main);">Stříhal jsem obsah pro absolutní špičky jako je Artem Saykin a spolupracoval s makléři z RE/MAXu. Pro Homeaway, kteří pronajímají interiéry přes Airbnb, jsme natočili profi prohlídky, které prokazatelně zvýšily jejich prodeje. Pro dalšího klienta na pomezí realit a designu jsme postavili strategii, která prodává konzultace čistě organicky.</p>
+                    <p style="margin: 0; font-weight: 600; color: var(--text-main);">Dalšímu klientovi v realitním a designérském oboru jsem postavil strategii, která prodává jeho konzultace čistě organicky, a za 6 měsíců dělá průměrně 2-3 konzultace měsíčně.</p>
                 </div>
 
-                <p style="font-size: 1.15rem; color: var(--text-light); margin-bottom: 1.5rem;">Nehledejte jen kameramana. Hledejte strategického partnera. Nejde o to mít na profilu hezké záběry, jde o psychologii prodeje přetavenou do videa a systému, který prodává nemovitosti za vás, i když zrovna spíte.</p>
+                <p style="font-size: 1.15rem; color: var(--text-light); margin-bottom: 1.5rem;">Nehledejte jen kameramana. Hledejte strategického partnera. Nejde o to mít na profilu hezké záběry, jde o psychologii prodeje implementovanou do videa a systému, který prodává nemovitosti za vás, i když zrovna spíte.</p>
                 
-                <p style="font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin-top: 2rem;">Pokud nebudu přesvědčený, že náš systém zmnohonásobí vaše provize, spolupráci rovnou odmítnu.</p>
+                <p style="font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin-top: 2rem;">Pokud nebudu přesvědčený, že vám dokážu zmnohonásobit provize, spolupráci rovnou odmítnu.</p>
                 
                 <img src="OP.png" alt="Podpis Ondřej Parýzek" class="signature">
             </div>
@@ -320,7 +364,7 @@
             <div class="contact-info">
                 <span class="section-tag">STRATEGICKÝ HOVOR</span>
                 <h2>Pojďme to probrat.</h2>
-                <p>Vyberte si termín v mém kalendáři. Ukážu vám, jak náš tajný systém funguje v praxi a probereme, jak ho můžeme nasadit na váš realitní byznys pro získání nových leadů. Žádné omáčky – na hovoru se potkáte přímo se mnou.</p>
+                <p>Vyberte si termín v mém kalendáři. Ukážu vám, jak náš systém funguje v praxi a probereme, jak ho můžeme nasadit na váš realitní byznys pro získání nových leadů. Žádné omáčky – na hovoru se potkáte přímo se mnou.</p>
                 
                 <div class="direct-contact">
                     <a href="mailto:ondrej@jsmeozivto.cz" class="contact-link"><i class="fa-solid fa-envelope"></i> ondrej@jsmeozivto.cz</a>
