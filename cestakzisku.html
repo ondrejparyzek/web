@@ -17,15 +17,29 @@
     <script defer src="script.js"></script>
 
     <style>
+        /* VYNUCENÍ ČERNÉHO POZADÍ A MODRÝCH AKCENTŮ */
+        :root {
+            --bg-main: #000000;
+            --bg-secondary: #050505;
+            --text-main: #ffffff;
+            --text-light: #cccccc;
+            --accent-primary: #294efe;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+        }
+
         /* PRÉMIOVÁ HLAVIČKA */
         .hard-sell-hero {
-            background: radial-gradient(ellipse at top, #1a1a1a 0%, #000000 100%);
+            background: radial-gradient(ellipse at top, #0a0a0a 0%, #000000 100%);
             color: #ffffff;
             padding: 14rem 0 8rem;
             text-align: center;
             position: relative;
             overflow: hidden;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(41, 78, 254, 0.1);
         }
         
         .hard-sell-hero::before {
@@ -74,9 +88,9 @@
         }
         
         .dark-stat-card {
-            background: #111;
-            border: 1px solid rgba(0, 248, 29, 0.2);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            background: #080808;
+            border: 1px solid rgba(41, 78, 254, 0.2);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
             color: #fff;
             display: flex;
             flex-direction: column;
@@ -101,7 +115,7 @@
         }
 
         .dark-stat-card h3 { 
-            color: #00f81d; 
+            color: #294efe; 
             font-size: 2rem; 
             line-height: 1.2; 
             margin-bottom: 1rem;
@@ -149,14 +163,11 @@
             width: 100%;
             border-radius: 16px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-            border: 2px solid rgba(0, 248, 29, 0.1);
+            border: 2px solid rgba(41, 78, 254, 0.1);
         }
         .signature {
             max-height: 150px;
             margin-top: 2rem;
-            filter: grayscale(100%) contrast(200%);
-        }
-        body.dark-mode .signature {
             filter: invert(1);
         }
 
@@ -222,6 +233,23 @@
             position: relative;
             z-index: 2;
         }
+        
+        /* HOVER EFEKT: Modrý pro kontakty v sekci hovoru */
+        .direct-contact .contact-link {
+            transition: color 0.3s ease;
+        }
+        .direct-contact .contact-link:hover,
+        .direct-contact .contact-link:hover i {
+            color: #294efe !important;
+        }
+        
+        /* HOVER EFEKT: Zelený pouze pro kontakty a ikony v patičce */
+        .footer-col a:hover,
+        .socials a:hover i,
+        footer a:hover,
+        footer a:hover i {
+            color: #00f81d !important;
+        }
 
         /* MOBILNÍ ÚPRAVY PRO GARANCI A FOTKU */
         @media (max-width: 900px) {
@@ -265,40 +293,21 @@
 </head>
 <body>
 
-    <nav>
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="ozivtonavbarlogo.png" alt="Oživ.to Logo" class="nav-logo-img" fetchpriority="high" decoding="sync">
-            </a>
-            
-            <button class="hamburger" aria-label="Menu">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-            </button>
-
-            <ul class="nav-links">
-                <li><a href="kangelo.html" target="_blank">Výsledky</a></li>
-                <li><a href="#contact" class="btn-nav">Domluvit hovor</a></li>
-            </ul> 
-        </div>
-    </nav>
-
     <header class="hard-sell-hero">
-        <div style="position: absolute; top: -35%; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(0,248,29,0.12) 0%, rgba(0,0,0,0) 65%); border-radius: 50%; z-index: 1; pointer-events: none;"></div>
+        <div style="position: absolute; top: -35%; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(41,78,254,0.12) 0%, rgba(0,0,0,0) 65%); border-radius: 50%; z-index: 1; pointer-events: none;"></div>
         
         <div class="container relative" style="z-index: 2;">
-            <span class="step-tag" style="background: rgba(255,255,255,0.05); border: 2px solid #00f81d; color: #00f81d !important; font-weight: 900; padding: 8px 20px; border-radius: 50px; position: relative; z-index: 2;">EXKLUZIVNĚ PRO MAKLÉŘE</span>
+            <span class="step-tag" style="background: rgba(255,255,255,0.05); border: 2px solid #294efe; color: #294efe !important; font-weight: 900; padding: 8px 20px; border-radius: 50px; position: relative; z-index: 2;">EXKLUZIVNĚ PRO MAKLÉŘE</span>
             
-            <h1>Systém, který <span class="highlight" style="color: #00f81d !important;">generuje leady</span><br>a prodává nemovitosti za vás.</h1>
+            <h1>Systém, který <span class="highlight" style="color: #294efe !important;">generuje leady</span><br>a prodává nemovitosti za vás.</h1>
             
             <p>Většina makléřů natáčí nudné prohlídky na mobil a diví se, že nezískávají exkluzivní náběry. Objevte kompletní strategii prověřenou top makléři, která buduje osobní brand a mění diváky na klienty.</p>
             
-            <a href="#contact" class="btn primary" style="font-size: 1.1rem; padding: 1.2rem 3rem; position: relative; z-index: 2;">Chci ovládnout svůj region</a>
+            <a href="#contact" class="btn primary" style="background-color: #294efe; color: #ffffff; font-size: 1.1rem; padding: 1.2rem 3rem; position: relative; z-index: 2;">Chci ovládnout svůj region</a>
             
             <br>
             <div class="authority-badge">
-                <i class="fa-solid fa-shield-halved" style="color: #00f81d;"></i>
+                <i class="fa-solid fa-shield-halved" style="color: #294efe;"></i>
                 <span>Spolupracoval jsem s makléři z <strong style="color: #fff;">RE/MAX</strong>, editoval videa pro <strong style="color: #fff;">Artema Saykina</strong>, či <strong style="color: #fff;">Brosfin</strong> a zvýšil prodeje pronájmů v <strong style="color: #fff;">Homeaway</strong>.</span>
             </div>
         </div>
@@ -309,7 +318,7 @@
             
             <div class="stat-card dark-stat-card">
                 <div>
-                    <span class="client-tag"><i class="fa-solid fa-star" style="margin-right: 5px;"></i> Artem Saykin & RE/MAX</span>
+                    <span class="client-tag"><i class="fa-solid fa-star" style="margin-right: 5px; color: #ccc;"></i> Artem Saykin & RE/MAX</span>
                     <h3>Silná autorita<br>a osobní brand</h3>
                     <small>Postaral jsem se o profesionální střih a editaci videí pro top makléře na trhu v síti RE/MAX včetně Artema. Stavím obsah a strategii, která buduje důvěru a prezentuje makléře jako prémiovou volbu.</small>
                 </div>
@@ -318,7 +327,7 @@
 
             <div class="stat-card dark-stat-card">
                 <div>
-                    <span class="client-tag"><i class="fa-solid fa-house" style="margin-right: 5px;"></i> KLIENT: Homeaway (Airbnb)</span>
+                    <span class="client-tag"><i class="fa-solid fa-house" style="margin-right: 5px; color: #ccc;"></i> KLIENT: Homeaway (Airbnb)</span>
                     <h3>Více rezervací<br>a prémiová prezentace</h3>
                     <small>Pro společnost pronajímající interiéry přes Airbnb jsme vytvořili prémiové video prohlídky, které jsem stříhal a ladil strukturu. Luxusní prezentace okamžitě zvedla atraktivitu nemovitostí a reálně zvýšila prodeje.</small>
                 </div>
@@ -331,13 +340,13 @@
     <section class="guarantee-section">
         <div class="container split-layout">
             <div class="text-block">
-                <span class="section-tag">ZNALOST OBORU</span>
-                <h2 style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 1.5rem;">Znám strategii, která <br><span class="highlight">prodává reality.</span></h2>
+                <span class="section-tag" style="color: var(--accent-primary);">ZNALOST OBORU</span>
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 1.5rem;">Znám strategii, která <br><span class="highlight" style="color: var(--accent-primary);">prodává reality.</span></h2>
                 
                 <p style="font-size: 1.15rem; color: var(--text-light); margin-bottom: 1.5rem;">Editovat video a prolétat dronem oknem umí dneska každý. Ale vytvořit ucelenou marketingovou strategii, která buduje vaši autoritu a automaticky sbírá leady? To je ověřená strategie, která dává smysl.</p>
 
                 
-                <div class="highlight-box" style="margin: 2rem 0; padding: 1.5rem; background: rgba(0, 248, 29, 0.05); border-left: 4px solid var(--accent-primary);">
+                <div class="highlight-box" style="margin: 2rem 0; padding: 1.5rem; background: rgba(41, 78, 254, 0.05); border-left: 4px solid var(--accent-primary);">
                     <p style="margin: 0; font-weight: 600; color: var(--text-main);">Dalšímu klientovi v realitním a designérském oboru jsem postavil strategii, která prodává jeho konzultace čistě organicky, a za 6 měsíců dělá průměrně 2-3 konzultace měsíčně.</p>
                 </div>
 
@@ -345,7 +354,7 @@
                 
                 <p style="font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin-top: 2rem;">Pokud nebudu přesvědčený, že vám dokážu zmnohonásobit provize, spolupráci rovnou odmítnu.</p>
                 
-                <img src="OP.png" alt="Podpis Ondřej Parýzek" class="signature">
+                <img src="OP.png" alt="Podpis Ondřej Parýzek" class="signature" style="filter: invert(1);">
             </div>
             
             <div class="author-box">
@@ -362,13 +371,13 @@
     <section id="contact" style="padding: 8rem 0; background-color: var(--bg-secondary);">
         <div class="container contact-wrapper">
             <div class="contact-info">
-                <span class="section-tag">STRATEGICKÝ HOVOR</span>
+                <span class="section-tag" style="color: var(--accent-primary);">STRATEGICKÝ HOVOR</span>
                 <h2>Pojďme to probrat.</h2>
                 <p>Vyberte si termín v mém kalendáři. Ukážu vám, jak náš systém funguje v praxi a probereme, jak ho můžeme nasadit na váš realitní byznys pro získání nových leadů. Žádné omáčky – na hovoru se potkáte přímo se mnou.</p>
                 
                 <div class="direct-contact">
-                    <a href="mailto:ondrej@jsmeozivto.cz" class="contact-link"><i class="fa-solid fa-envelope"></i> ondrej@jsmeozivto.cz</a>
-                    <a href="tel:+420723871837" class="contact-link"><i class="fa-solid fa-phone"></i> +420 723 871 837</a>
+                    <a href="mailto:ondrej@jsmeozivto.cz" class="contact-link"><i class="fa-solid fa-envelope" style="color: var(--accent-primary);"></i> ondrej@jsmeozivto.cz</a>
+                    <a href="tel:+420723871837" class="contact-link"><i class="fa-solid fa-phone" style="color: var(--accent-primary);"></i> +420 723 871 837</a>
                 </div>
 
                 <div class="scarcity-alert desktop-alert">
@@ -388,11 +397,11 @@
 
                       Cal.ns["strategicky-hovor-ondrej-paryzek"]("inline", {
                         elementOrSelector:"#my-cal-inline-strategicky-hovor-ondrej-paryzek",
-                        config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"},
+                        config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"dark"},
                         calLink: "ozivto/strategicky-hovor-ondrej-paryzek",
                       });
 
-                      Cal.ns["strategicky-hovor-ondrej-paryzek"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#46f81e"},"dark":{"cal-brand":"#46f81e"}},"hideEventTypeDetails":false,"layout":"month_view"});
+                      Cal.ns["strategicky-hovor-ondrej-paryzek"]("ui", {"theme":"dark","cssVarsPerTheme":{"light":{"cal-brand":"#294efe"},"dark":{"cal-brand":"#294efe"}},"hideEventTypeDetails":false,"layout":"month_view"});
                       </script>
                       </div>
 
@@ -427,8 +436,8 @@
 
             <div class="footer-col">
                 <h4>Kontakt & Info</h4>
-                <p><i class="fa-solid fa-envelope"></i> <a href="mailto:info@jsmeozivto.cz">info@jsmeozivto.cz</a></p>
-                <p><i class="fa-solid fa-phone"></i> <a href="tel:+420723871837">+420 723 871 837</a></p>
+                <p><i class="fa-solid fa-envelope" style="color: #ccc;"></i> <a href="mailto:info@jsmeozivto.cz">info@jsmeozivto.cz</a></p>
+                <p><i class="fa-solid fa-phone" style="color: #ccc;"></i> <a href="tel:+420723871837">+420 723 871 837</a></p>
                 
                 <div style="margin-top: 15px; margin-bottom: 15px;">
                     <a href="gdpr.html" style="text-decoration: underline; font-size: 0.9rem; color: #a0a0a0;">Zásady ochrany osobních údajů</a>
@@ -441,9 +450,9 @@
                 </div>
 
                 <div class="socials">
-                    <a href="https://www.instagram.com/ozivto.cz/"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/company/ozivto/"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://www.facebook.com/ozivto.cz/"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/ozivto.cz/"><i class="fa-brands fa-instagram" style="color: #ccc;"></i></a>
+                    <a href="https://www.linkedin.com/company/ozivto/"><i class="fa-brands fa-linkedin" style="color: #ccc;"></i></a>
+                    <a href="https://www.facebook.com/ozivto.cz/"><i class="fa-brands fa-facebook" style="color: #ccc;"></i></a>
                 </div>
             </div>
         </div>
@@ -466,7 +475,7 @@
             <div class="cookie-btns">
                 <button id="cookie-reject" class="btn-outline">Odmítnout</button>
                 <button id="cookie-settings-btn" class="btn-outline">Nastavení</button>
-                <button id="cookie-accept" class="btn-primary">Přijmout vše</button>
+                <button id="cookie-accept" class="btn-primary" style="background-color: var(--accent-primary); border-color: var(--accent-primary);">Přijmout vše</button>
             </div>
         </div>
     </div>
@@ -501,7 +510,7 @@
             </div>
 
             <div class="cookie-modal-btns">
-                <button id="cookie-save-preferences" class="btn-primary">Uložit nastavení</button>
+                <button id="cookie-save-preferences" class="btn-primary" style="background-color: var(--accent-primary); border-color: var(--accent-primary);">Uložit nastavení</button>
                 <button id="cookie-close-modal" class="btn-text">Zavřít</button>
             </div>
         </div>
