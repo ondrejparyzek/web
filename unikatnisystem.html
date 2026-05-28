@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Marketing pro realitní makléře | Oživto</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #000000;
+            --text-main: #ffffff;
+            --text-light: #cccccc;
+            --accent-primary: #294efe;
+            /* Definice fontů */
+            --font-main: 'Poppins', sans-serif;
+            --font-accent: 'Snell Roundhand', cursive;
+        }
+
+        body { 
+            background-color: var(--bg-main); 
+            color: var(--text-main); 
+            font-family: var(--font-main); 
+            margin: 0; 
+            padding: 0; 
+            line-height: 1.6;
+        }
+
+        /* Použití druhého fontu */
+        .script-font {
+            font-family: var(--font-accent);
+            color: var(--accent-primary);
+            font-size: 1.2em;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        .hero { padding: 6rem 0 4rem; text-align: center; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1.5rem; }
+        .hero p { font-size: 1.2rem; color: var(--text-light); }
+
+        .section-title { 
+            font-size: clamp(2rem, 4vw, 3rem); 
+            font-weight: 800; 
+            margin: 6rem 0 3rem; 
+            text-align: center; 
+        }
+
+        .video-container { 
+            max-width: 900px; 
+            margin: 3rem auto; 
+            background: #0a0a0a; 
+            padding: 10px; 
+            border-radius: 32px; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .video-wrapper { 
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            overflow: hidden; 
+            border-radius: 24px; 
+        }
+
+        .video-wrapper iframe { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+        }
+
+        .review-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 4rem; }
+
+        .certs-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 1.5rem; 
+            margin-bottom: 5rem;
+        }
+
+        .cert-item { 
+            background: #0a0a0a; 
+            padding: 1rem; 
+            border-radius: 24px; 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            transition: transform 0.3s ease;
+        }
+        .cert-item:hover { transform: translateY(-5px); border-color: rgba(41, 78, 254, 0.3); }
+        .cert-item img { width: 100%; border-radius: 16px; display: block; }
+        .cert-portrait { grid-row: span 2; }
+
+        @media (max-width: 768px) {
+            .review-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Jak získávat před-ohřáté leady na <span class="script-font">autopilota?</span></h1>
+            <p>Pusťte si krátké video níže před naší schůzkou, a podívejte se, jak celý systém funguje.</p>
+        </div>
+    </header>
+
+   <!-- Vložené Loom video -->
+        <div class="video-container">
+            <div class="video-wrapper">
+                <iframe src="https://www.loom.com/embed/946ffd8080934ebfaeb8fdcbc9bed4d5?sid=95f46401-26c3-41c3-b9ba-f1d227918a00" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+        </div>
+        <h2 class="section-title">Co říkají <span class="script-font">klienti?</span></h2>
+        <div class="review-grid">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/XV8D4YlOX1E" allowfullscreen></iframe>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/XOCET_z9n0Y" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <h2 class="section-title"> <span class="script-font">Certifikace </span> a expertíza</h2>
+        <div class="certs-grid">
+            <div class="cert-item"><img src="cert1.jpeg" alt="Certifikát 1"></div>
+            <div class="cert-item"><img src="cert2.jpeg" alt="Certifikát 2"></div>
+            <div class="cert-item cert-portrait"><img src="cert3.jpeg" alt="Certifikát 3"></div>
+            <div class="cert-item cert-portrait"><img src="cert4.jpeg" alt="Certifikát 4"></div>
+        </div>
+    </div>
+    
+    </body>
+</html>
