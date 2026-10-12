@@ -1,268 +1,175 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // =========================================
-    // 1. MOBILNÍ MENU (HAMBURGER)
-    // =========================================
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+    document.documentElement.classList.remove('no-js');
 
-    if(hamburger) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-            // Zamezí scrollování, když je menu otevřené
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
-        });
-        
-        // Zavřít menu po kliknutí na odkaz
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-        });
+    /* Mobilní menu */
+    const burger = document.querySelector('.burger');
+    const links = document.querySelector('.nav-links');
+    if (burger && links) {
+        const toggle = (open) => {
+            links.classList.toggle('active', open);
+            burger.classList.toggle('active', open);
+            document.body.style.overflow = open ? 'hidden' : '';
+        };
+        burger.addEventListener('click', () => toggle(!links.classList.contains('active')));
+        links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
     }
 
-    // =========================================
-    // 2. LOGO SLIDER (ANIMACE)
-    // =========================================
-    const track = document.getElementById('logoTrack');
-    const scroller = document.getElementById('logoScroller');
-    
-    const checkSlider = () => {
-        if(!track || !scroller) return;
+    /* Reveal při scrollu */
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+        el.style.setProperty('--d', ((i % 4) * 0.08) + 's');
+        io.observe(el);
+    });
 
-        track.classList.remove('animate');
-        // Smazat staré klony, aby se nekupily
-        track.querySelectorAll('.clone').forEach(clone => clone.remove());
-
-        const trackWidth = track.scrollWidth;
-        const containerWidth = scroller.offsetWidth;
-
-        // Pokud je log více, než se vejde na obrazovku, zapni animaci
-        if (trackWidth > containerWidth) {
-            Array.from(track.children).forEach(child => {
-                const clone = child.cloneNode(true);
-                clone.classList.add('clone');
-                track.appendChild(clone);
-            });
-            track.classList.add('animate');
-        }
-    };
-
-    // Spustit hned a pak při změně velikosti okna
-    checkSlider();
-    window.addEventListener('resize', checkSlider);
-
-
-    // =========================================
-    // 3. FAQ AKORDEON
-    // =========================================
-    const faqCards = document.querySelectorAll('.faq-card');
-    
-    faqCards.forEach(card => {
-        card.addEventListener('click', () => {
-            // Zjistíme, jestli je tato karta už otevřená
-            const isAlreadyActive = card.classList.contains('active');
-            
-            // Zavřeme všechny ostatní
-            faqCards.forEach(other => other.classList.remove('active'));
-            
-            // Pokud nebyla otevřená, otevřeme ji
-            if (!isAlreadyActive) card.classList.add('active');
+    /* Světlo sledující kurzor v bento blocích */
+    document.querySelectorAll('.b').forEach(b => {
+        b.addEventListener('pointermove', (e) => {
+            const r = b.getBoundingClientRect();
+            b.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+            b.style.setProperty('--my', (e.clientY - r.top) + 'px');
         });
     });
 
+    /* Marquee – zdvojení obsahu pro plynulou smyčku */
+    document.querySelectorAll('.marquee-track').forEach(t => { t.innerHTML += t.innerHTML; });
 
-    // =========================================
-    // 4. MODÁLNÍ OKNA (SLUŽBY & TÝM)
-    // =========================================
-    const openModalBtns = document.querySelectorAll('.open-modal-btn');
-    const overlays = document.querySelectorAll('.modal-overlay');
+    /* FAQ */
+    const faqs = document.querySelectorAll('.faq-item');
+    faqs.forEach(item => {
+        item.querySelector('.faq-q').addEventListener('click', () => {
+            const was = item.classList.contains('active');
+            faqs.forEach(o => o.classList.remove('active'));
+            if (!was) item.classList.add('active');
+        });
+    });
 
-    const closeModal = (modal) => {
-        if(modal) {
-            modal.classList.remove('active');
-            document.body.style.overflow = ''; // Povolí scrollování stránky
-        }
-    };
-
-    // Otevření modalu
-    openModalBtns.forEach(btn => {
+    /* Modály */
+    const closeModal = (m) => { if (m) { m.classList.remove('active'); document.body.style.overflow = ''; m.querySelectorAll('iframe[data-src]').forEach(f => f.src = 'about:blank'); } };
+    document.querySelectorAll('[data-modal]').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            // Získáme ID modalu z atributu data-target (např. "modal-social")
-            const targetId = btn.getAttribute('data-target');
-            const modal = document.getElementById(targetId);
-            if (modal) {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Zablokuje scrollování stránky
-            }
+            const m = document.getElementById(btn.dataset.modal);
+            if (m) { m.classList.add('active'); document.body.style.overflow = 'hidden'; m.querySelectorAll('iframe[data-src]').forEach(f => f.src = f.dataset.src); }
+        });
+    });
+    document.querySelectorAll('.modal').forEach(m => {
+        m.addEventListener('click', (e) => { if (e.target === m || e.target.closest('.modal-x') || e.target.closest('[data-close]')) closeModal(m); });
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') document.querySelectorAll('.modal.active').forEach(closeModal); });
+
+    /* Drag-scroll (kroky, recenze) */
+    document.querySelectorAll('.steps, .reviews').forEach(s => {
+        let down = false, sx = 0, sl = 0, moved = false;
+        s.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') return; down = true; moved = false; sx = e.pageX; sl = s.scrollLeft; });
+        window.addEventListener('pointerup', () => { down = false; s.classList.remove('dragging'); });
+        s.addEventListener('pointermove', (e) => {
+            if (!down) return;
+            const dx = e.pageX - sx;
+            if (Math.abs(dx) > 4) { moved = true; s.classList.add('dragging'); }
+            s.scrollLeft = sl - dx;
         });
     });
 
-    // Zavření křížkem nebo tlačítkem uvnitř
-    document.querySelectorAll('.close-modal, .close-and-scroll').forEach(btn => {
-        btn.addEventListener('click', function() {
-            closeModal(this.closest('.modal-overlay'));
+    /* Počítadla */
+    const fmt = (n) => n.toLocaleString('cs-CZ').replace(/\s/g, '\u00a0');
+    const cio = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (!e.isIntersecting) return;
+            const el = e.target, target = +el.dataset.count, dur = 1800, t0 = performance.now();
+            const tick = (t) => {
+                const p = Math.min((t - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 4);
+                el.textContent = fmt(Math.round(target * eased));
+                if (p < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+            cio.unobserve(el);
         });
-    });
-
-    // Zavření kliknutím mimo okno (do tmavého pozadí)
-    overlays.forEach(overlay => {
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) closeModal(overlay);
-        });
-    });
+    }, { threshold: .5 });
+    document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
 
 
+    /* Reel (hero) – zdvojení obsahu pro nekonečnou smyčku */
+    document.querySelectorAll('.reel-col').forEach(c => { c.innerHTML += c.innerHTML; });
 
-    // =========================================
-    // 6. COOKIES (VYLEPŠENÁ LOGIKA)
-    // =========================================
-    const banner = document.getElementById("cookie-banner");
-    const cookieModal = document.getElementById("cookie-modal");
-    
-    // Tlačítka
-    const acceptBtn = document.getElementById("cookie-accept");
-    const rejectBtn = document.getElementById("cookie-reject");
-    const settingsBtn = document.getElementById("cookie-settings-btn");
-    const savePreferencesBtn = document.getElementById("cookie-save-preferences");
-    const closeCookieModalBtn = document.getElementById("cookie-close-modal");
+    /* Progress bar + schovávání navigace + sticky CTA */
+    const bar = document.querySelector('.progress'), navWrap = document.querySelector('.nav-wrap'), sticky = document.querySelector('.sticky-cta');
+    const contact = document.getElementById('contact'), hero = document.querySelector('.hero, .page-hero');
+    let lastY = 0, ticking = false;
+    const onScroll = () => {
+        const y = window.scrollY, max = document.documentElement.scrollHeight - innerHeight;
+        if (bar) bar.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+        if (navWrap) navWrap.classList.toggle('hide', y > 240 && y > lastY + 4 && !(links && links.classList.contains('active')));
+        if (navWrap && y < lastY - 4) navWrap.classList.remove('hide');
+        if (sticky) {
+            const pastHero = y > (hero ? hero.offsetHeight * 0.7 : 500);
+            let nearContact = false;
+            if (contact) { const r = contact.getBoundingClientRect(); nearContact = r.top < innerHeight * .6 && r.bottom > 0; }
+            sticky.classList.toggle('show', pastHero && !nearContact);
+        }
+        lastY = y; ticking = false;
+    };
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+    onScroll();
 
-    // A) KONTROLA PŘI NAČTENÍ
-    // Pokud v paměti NENÍ uloženo rozhodnutí, ukážeme banner.
-    // Pokud tam JE (uživatel už kliknul), banner zůstane skrytý (má třídu .hidden z HTML).
-    if (!localStorage.getItem("cookieConsent")) {
-        if(banner) banner.classList.remove("hidden");
-    }
-
-    // Funkce pro uložení volby a zavření všeho
-    function saveAndClose(type) {
-        // 1. Uložíme do paměti prohlížeče
-        localStorage.setItem("cookieConsent", type);
-        
-        // 2. Skryjeme banner i modální okno
-        if(banner) banner.classList.add("hidden");
-        if(cookieModal) cookieModal.classList.add("hidden");
-
-        // 3. Zde by se spouštěly měřící kódy (Google Analytics, Pixel)
-        // Příklad: if (type === 'all') { spustitAnalytics(); }
-        console.log("Cookies nastaveny na:", type);
-    }
-
-    // PŘIJMOUT VŠE
-    if(acceptBtn) {
-        acceptBtn.addEventListener("click", () => saveAndClose("all"));
-    }
-
-    // ODMÍTNOUT (Jen nezbytné)
-    if(rejectBtn) {
-        rejectBtn.addEventListener("click", () => saveAndClose("none"));
-    }
-
-    // OTEVŘÍT NASTAVENÍ (Z banneru)
-    if(settingsBtn) {
-        settingsBtn.addEventListener("click", () => {
-            if(cookieModal) cookieModal.classList.remove("hidden");
+    /* Záře za kurzorem + magnetická tlačítka (jen myš) */
+    const glow = document.querySelector('.cursor-glow');
+    if (glow && matchMedia('(hover:hover) and (pointer:fine)').matches) {
+        window.addEventListener('pointermove', (e) => { glow.classList.add('on'); glow.style.transform = 'translate(' + e.clientX + 'px,' + e.clientY + 'px)'; }, { passive: true });
+        document.querySelectorAll('.magnetic').forEach(b => {
+            b.addEventListener('pointermove', (e) => { const r = b.getBoundingClientRect(); b.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * .18) + 'px,' + ((e.clientY - r.top - r.height / 2) * .28) + 'px)'; });
+            b.addEventListener('pointerleave', () => { b.style.transform = ''; });
         });
     }
 
-    // ULOŽIT Z NASTAVENÍ
-    if(savePreferencesBtn) {
-        savePreferencesBtn.addEventListener("click", () => saveAndClose("custom"));
+    /* Šipky u recenzí */
+    document.querySelectorAll('.arrow').forEach(a => a.addEventListener('click', () => {
+        const rv = document.querySelector('.reviews'); if (!rv) return;
+        const card = rv.querySelector('.review'); rv.scrollBy({ left: a.dataset.dir * (card.offsetWidth + 16), behavior: 'smooth' });
+    }));
+
+    /* Lightbox pro obrázky */
+    const zoomImgs = document.querySelectorAll('img[data-zoom]');
+    if (zoomImgs.length) {
+        const lb = document.createElement('div'); lb.className = 'lightbox'; lb.innerHTML = '<img alt="">'; document.body.appendChild(lb);
+        zoomImgs.forEach(im => im.addEventListener('click', () => { lb.firstChild.src = im.src; lb.classList.add('on'); }));
+        lb.addEventListener('click', () => lb.classList.remove('on'));
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lb.classList.remove('on'); });
     }
 
-    // ZAVŘÍT KŘÍŽKEM (Jen zavře okno nastavení, neukládá souhlas)
-    if(closeCookieModalBtn) {
-        closeCookieModalBtn.addEventListener("click", () => {
-            if(cookieModal) cookieModal.classList.add("hidden");
-        });
+    /* Časová osa procesu */
+    const tline = document.getElementById('timeline');
+    if (tline) {
+        const items = tline.querySelectorAll('.tl-item');
+        const upd = () => {
+            const r = tline.getBoundingClientRect(), mid = innerHeight * .55;
+            const p = Math.max(0, Math.min(1, (mid - r.top) / r.height));
+            tline.style.setProperty('--p', (p * 100) + '%');
+            items.forEach(it => { const nr = it.querySelector('.tl-node').getBoundingClientRect(); it.classList.toggle('on', nr.top + nr.height / 2 < mid); });
+        };
+        window.addEventListener('scroll', upd, { passive: true }); window.addEventListener('resize', upd); upd();
     }
 
+    /* Rok v patičce */
+    document.querySelectorAll('.js-year').forEach(el => el.textContent = new Date().getFullYear());
+
+    /* Cookies */
+    const banner = document.getElementById('cookie-banner');
+    const cmodal = document.getElementById('cookie-modal');
+    let stored = null;
+    try { stored = localStorage.getItem('cookieConsent'); } catch (e) {}
+    if (banner && !stored) banner.classList.remove('hidden');
+    const save = (type) => {
+        try { localStorage.setItem('cookieConsent', type); } catch (e) {}
+        banner && banner.classList.add('hidden');
+        cmodal && cmodal.classList.add('hidden');
+    };
+    const on = (id, fn) => { const el = document.getElementById(id); if (el) el.addEventListener('click', fn); };
+    on('cookie-accept', () => save('all'));
+    on('cookie-reject', () => save('none'));
+    on('cookie-settings-btn', () => cmodal && cmodal.classList.remove('hidden'));
+    on('cookie-save-preferences', () => save('custom'));
+    on('cookie-close-modal', () => cmodal && cmodal.classList.add('hidden'));
+    document.querySelectorAll('[data-cookie-settings]').forEach(a => a.addEventListener('click', (e) => { e.preventDefault(); cmodal && cmodal.classList.remove('hidden'); }));
 });
-
-// =========================================
-    // DRAG & SCROLL PROCES SLIDER (MYŠÍ)
-    // =========================================
-    const slider = document.getElementById('process-slider');
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    if(slider) {
-        // Když uživatel klikne myší dolů
-        slider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            slider.classList.add('active'); // Změní kurzor a vypne snap
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-        });
-
-        // Když uživatel opustí oblast slideru nebo pustí myš
-        slider.addEventListener('mouseleave', () => {
-            isDown = false;
-            slider.classList.remove('active');
-        });
-
-        slider.addEventListener('mouseup', () => {
-            isDown = false;
-            slider.classList.remove('active');
-        });
-
-        // Když uživatel hýbe myší
-        slider.addEventListener('mousemove', (e) => {
-            if (!isDown) return; // Pokud nedrží tlačítko, nic nedělej
-            e.preventDefault();  // Zabrání označování textu atd.
-            
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; // Rychlost posunu (x2 je rychlejší)
-            slider.scrollLeft = scrollLeft - walk;
-        });
-    }
-
-    // =========================================
-    // DRAG & SCROLL PRO RECENZE (MYŠÍ)
-    // =========================================
-    const reviewsSlider = document.getElementById('reviews-slider'); // Ujisti se, že máš toto ID v HTML
-    // Nebo pokud nechceš měnit HTML, použij: const reviewsSlider = document.querySelector('.reviews-scroller');
-    
-    let isDownReviews = false;
-    let startXReviews;
-    let scrollLeftReviews;
-
-    if(reviewsSlider) {
-        reviewsSlider.addEventListener('mousedown', (e) => {
-            isDownReviews = true;
-            reviewsSlider.classList.add('active');
-            startXReviews = e.pageX - reviewsSlider.offsetLeft;
-            scrollLeftReviews = reviewsSlider.scrollLeft;
-        });
-
-        reviewsSlider.addEventListener('mouseleave', () => {
-            isDownReviews = false;
-            reviewsSlider.classList.remove('active');
-        });
-
-        reviewsSlider.addEventListener('mouseup', () => {
-            isDownReviews = false;
-            reviewsSlider.classList.remove('active');
-        });
-
-        reviewsSlider.addEventListener('mousemove', (e) => {
-            if (!isDownReviews) return;
-            e.preventDefault();
-            const x = e.pageX - reviewsSlider.offsetLeft;
-            const walk = (x - startXReviews) * 2; 
-            reviewsSlider.scrollLeft = scrollLeftReviews - walk;
-        });
-        
-        // Podpora pro kolečko myši (vertikální -> horizontální)
-        reviewsSlider.addEventListener("wheel", (evt) => {
-            if (evt.deltaY !== 0) {
-                evt.preventDefault();
-                reviewsSlider.scrollLeft += evt.deltaY;
-            }
-        });
-    }

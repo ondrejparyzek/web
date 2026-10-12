@@ -1,307 +1,88 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="cs" class="no-js">
 <head>
-    <script defer src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Czech Designers - Případová studie | Oživto</title>
-    <meta property="og:image" content="https://i.postimg.cc/zDRKPtML/OGimage.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <link rel="shortcut icon" type="image/jpeg" href="favicon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Czech Designers – případová studie | Oživto</title>
+<meta name="description" content="Jak jsme pomocí video funnelu vygenerovali přes 1 000 000 organických zhlédnutí a prodávali prémiové konzultace.">
+<meta name="author" content="Ondřej Parýzek, Oživto">
+<meta name="theme-color" content="#04261a">
+<link rel="canonical" href="https://www.jsmeozivto.cz/czechdesigners.html">
+<meta property="og:title" content="Czech Designers – případová studie | Oživto"><meta property="og:description" content="Jak jsme pomocí video funnelu vygenerovali přes 1 000 000 organických zhlédnutí a prodávali prémiové konzultace."><meta property="og:type" content="website">
+<meta property="og:image" content="https://i.postimg.cc/zDRKPtML/OGimage.png"><meta property="og:url" content="https://www.jsmeozivto.cz/czechdesigners.html">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-
-    <nav>
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="ozivtonavbarlogo.png" alt="Oživ.to Logo" class="nav-logo-img" fetchpriority="high" decoding="sync">
-            </a>
-            
-            <button class="hamburger" aria-label="Menu">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-            </button>
-
-            <ul class="nav-links">
-                <li><a href="homeaway.html">Další studie</a></li>
-                <li><a href="index.html">Zpět</a></li>
-            </ul> 
-        </div>
-    </nav>
-
-    <style>
-        .czech-force-white h1, 
-        .czech-force-white h1 span, 
-        .czech-force-white p,
-        .czech-force-white .highlight {
-            color: #ffffff !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-        }
-        .czech-force-white .highlight {
-            color: #00f81d !important;
-        }
-        .czech-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.75) !important;
-            z-index: 1;
-        }
-        .revenue-summary {
-            background: rgba(0, 248, 29, 0.05);
-            border-left: 4px solid #00f81d;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 0 12px 12px 0;
-        }
-        .revenue-summary h4 {
-            margin-top: 0;
-            color: #111;
-            font-weight: 700;
-        }
-    </style>
-
-    <header class="case-hero czech-force-white" style="position: relative; background-image: url('banner-czechdesigners.png'); background-size: cover; background-position: center; padding: 10rem 0 8rem; overflow: hidden; background-color: #000;">
-        
-        <div class="czech-overlay"></div>
-
-        <div class="container" style="position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center; text-align: center;">
-            
-            <div style="background: white; padding: 25px 45px; border-radius: 18px; margin-bottom: 3.5rem; display: inline-block; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
-                <img src="czechdesigners-logo.png" alt="Czech Designers Logo" style="height: clamp(60px, 8vw, 100px); max-width: 100%; display: block; filter: none !important; object-fit: contain;">
-            </div>
-            
-            <span class="step-tag" style="background: #ffffff; border: 2px solid #00f81d; color: #111 !important; font-weight: 900; padding: 8px 20px; border-radius: 50px;">KOMPLEXNÍ VIDEO FUNNEL</span>
-            
-            <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; margin-top: 2rem; text-shadow: 0 4px 20px rgba(0,0,0,0.9);">
-                Czech Designers: Přes <span class="highlight">1 000 000</span> zhlédnutí
-            </h1>
-            
-            <p style="max-width: 800px; margin: 1.5rem auto 0; font-size: 1.3rem; line-height: 1.6; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">
-                Jak jsme pomocí strategického propojení virálních krátkých videí a expertního obsahu na YouTube vybudovali stroj, který organicky generuje důvěru a prodává prémiové konzultace.
-            </p>
-        </div>
-    </header>
-    
-    <div class="container">
-        <div class="case-stats">
-            <div class="stat-card">
-                <h3><span class="count-up" data-target="1000000">0</span>+</h3>
-                <p>Organických zhlédnutí</p>
-            </div>
-            <div class="stat-card">
-                <h3>~<span class="count-up" data-target="1000">0</span></h3>
-                <p>Vysoce relevantních sledujících na YouTube</p>
-            </div>
-            <div class="stat-card">
-                <h3><span class="count-up" data-target="100">0</span>%</h3>
-                <p>Návratnost bez placené reklamy</p>
-            </div>
-        </div>
-    </div>
-
-    <section class="case-body">
-        <div class="container" style="max-width: 800px;">
-            
-            <h2>Výzva: Jak prodávat odborné know-how bez drahých reklam?</h2>
-            <p>Firma Czech Designers stál před klasickým problémem konzultačního byznysu. Prodávat prémiové poradenství a odborné know-how je složité, protože <strong>vyžaduje obrovskou míru důvěry</strong>. Tradiční placená reklama (Facebook/Instagram Ads) je v tomto odvětví drahá a má jednu zásadní slabinu: <em>Lidé si nekoupí drahou konzultaci od někoho, koho vidí poprvé ve sponzorovaném příspěvku.</em></p>
-            <p>Potřebovali jsme systém, který z úplného cizince udělá fanouška a následně platícího klienta. A to vše ideálně organicky, bez nutnosti pálit desetitisíce měsíčně v reklamních kampaních.</p>
-
-            <div class="highlight-box">
-                <p>Většina tvůrců dělá obrovskou chybu – snaží se prodat složitý produkt v 15vteřinovém TikToku. My jsme na to šli jinak. V krátkém videu jsme prodali pouze "kliknutí" na dlouhé video. A až dlouhé video prodalo konzultaci.</p>
-            </div>
-
-            <h2>Naše strategie: Architektura třístupňového video funnelu</h2>
-            <p>Vytvořili jsme výkonný prodejní trychtýř (funnel), který pracuje 24 hodin denně, 7 dní v týdnu. Namísto náhodného natáčení videí jsme obsah přísně rozdělili do tří na sebe navazujících fází.</p>
-            
-            <p>Pro dosažení maximálních výsledků jsme nenechali nic náhodě. V rámci příprav jsme s klientem absolvovali vzdělávací schůzku s asistentkou Denise Vencela z jedné z nejlepších marketingových agentur v Česku a Slovensku – <strong style="color: #ff7a00;">VYVYD Creatives</strong> a detailně jsme s nimi ladili celkovou strategii.</p>
-
-            <div class="funnel-visual" style="margin: 4rem 0;">
-                
-                <div class="funnel-stage stage-1">
-                    <div class="funnel-content">
-                        <div class="funnel-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-                        <div class="funnel-text">
-                            <span class="step-tag">Fáze 1: Zásah</span>
-                            <h3>Sběr publika (Instagram,Facebook, TikTok)</h3>
-                            <p>Na začátku trychtýře potřebujeme objem. Tvořili jsme dynamická, úderná vertikální videa (15–45 vteřin). <strong>Cíl:</strong> Algoritmus ukáže video desetitisícům lidí. Zachytíme jejich pozornost a na konci videa je vyzveme k interakci v komentářích.</p>
-                        </div>
-                    </div>
-                    <div class="funnel-arrow"><i class="fa-solid fa-chevron-down"></i></div>
-                </div>
-
-                <div class="funnel-stage stage-2">
-                    <div class="funnel-content">
-                        <div class="funnel-icon"><i class="fa-brands fa-youtube"></i></div>
-                        <div class="funnel-text">
-                            <span class="step-tag">Fáze 2: Důvěra a Autorita</span>
-                            <h3>ManyChat automatizace & Long-form YouTube</h3>
-                            <p>Tady se děje to hlavní kouzlo. <strong style="color: var(--accent-primary);">Pomocí nástroje ManyChat jsme zautomatizovali přechod diváků z Instagramu na YouTube.</strong> Jakmile uživatel okomentoval Reels určitým slovem, automat mu do DM okamžitě poslal odkaz na dlouhé (10–20minutové) video. Na YouTube jsme pak šli do absolutní hloubky a vybudovali potřebnou důvěru.</p>
-                        </div>
-                    </div>
-                    <div class="funnel-arrow"><i class="fa-solid fa-chevron-down"></i></div>
-                </div>
-
-                <div class="funnel-stage stage-3 highlight-stage">
-                    <div class="funnel-content">
-                        <div class="funnel-icon"><i class="fa-solid fa-handshake-angle"></i></div>
-                        <div class="funnel-text">
-                            <span class="step-tag" style="background: rgba(255,255,255,0.1);">Fáze 3: Konverze</span>
-                            <h3>Prodej konzultací</h3>
-                            <p>V dlouhých videích na YouTube už nebylo potřeba dělat agresivní prodej. Stačilo jemné připomenutí s odkazem v popisku. Lidé, kteří video dokoukali, byli natolik "zahřátí", že sami klikali a kupovali placené konzultace.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <h2>Ukázka naší práce</h2>
-            <p>Podívejte se na výsledná videa, která celou tuto strategii držela pohromadě po vizuální i obsahové stránce.</p>
-
-            <div class="video-embed" style="margin: 2rem 0 4rem; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #eee;">
-                <iframe width="100%" height="450" src="https://www.youtube.com/embed/lIpAWyH2ZBA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-
-            <div class="center" style="margin-top: 3rem; margin-bottom: 5rem;">
-                <a href="https://www.youtube.com/@czechdesigners/videos" target="_blank" class="btn secondary">
-                    Zobrazit další videa <i class="fa-brands fa-youtube" style="margin-left: 8px;"></i>
-                </a>
-            </div>
-
-            <h2>Výsledek: Proměna diváků v platící klienty</h2>
-            <p>Tento strategický přístup přinesl zásadní výsledky. Během jediného roku jsme dokázali vygenerovat přes <strong>1 000 000 organických zhlédnutí</strong> napříč platformami a k tomu 120 000 pouze na YouTube.</p>
-            
-            <div class="highlight-box">
-                <p><strong>Mimořádný organický zásah:</strong> Podařilo se nám vyprodukovat 2 dlouhá videa, z nichž každé přesáhlo hranici <strong>10 000 zhlédnutí</strong>. Dosáhnout takových čísel s dlouhým formátem na kanálu, který má kolem 1 000 sledujících, je obrovský úspěch. Jasně to dokazuje, že YouTube vyhodnotil náš obsah jako vysoce kvalitní a masivně ho doporučuje novým divákům.</p>
-            </div>
-
-            <p>YouTube kanál získal téměř <strong>1 000 vysoce relevantních odběratelů</strong>. Funnel zásadně ušetřil čas klienta na prodejních schůzkách – na konzultace totiž začali chodit lidé, kteří už měli nakoukané hodiny obsahu, znali hodnotu klienta a rovnou vytahovali peněženku.</p>
-
-            <h3 style="margin-top: 4rem;">Stabilní přísun klientů z organiky (Ukázka za 6 měsíců)</h3>
-            <p>Graf níže ukazuje, jak trychtýř dodával uzavřené konzultace naprosto automaticky. Každá z těchto konzultací je zpoplatněna částkou <strong>3 000 Kč</strong>.</p>
-
-            <div class="chart-container" style="position: relative; height: 350px; width: 100%; margin: 2rem 0; padding: 1.5rem; background: #ffffff; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05);">
-                <canvas id="organicSalesChart"></canvas>
-            </div>
-
-            <div class="revenue-summary">
-                <h4>Finanční přínos a strategie</h4>
-                <p>Za sledovaných 6 měsíců systém vygeneroval celkem <strong>14 konzultací</strong>, což odpovídá obratu <strong>42 000 Kč</strong>. </p>
-                <p>Je důležité zdůraznit, že toto <strong>není hlavní příjem</strong> klienta. Konzultace slouží jako vedlejší produkt a strategický filtr. Právě z těchto hovorů totiž vznikají zakázky na kompletní <strong>realizace 3D vizualizací</strong>, kde je cena projektu mnohonásobně vyšší a tvoří jádro byznysu.</p>
-            </div>
-
-            <div class="center" style="margin-top: 5rem; padding-top: 4rem; border-top: 1px solid #eee;">
-                <h3 style="margin-bottom: 1.5rem; font-size: 1.8rem;">Chcete postavit podobný prodejní automat?</h3>
-                <p style="margin-bottom: 2rem;">Nebudeme vám jen natáčet hezká videa. Postavíme vám strategii, která reálně generuje poptávky.</p>
-                <a href="index.html#contact" class="btn primary" style="padding: 1.2rem 3rem; font-size: 1.1rem;">Domluvit nezávazný hovor</a>
-            </div>
-            
-        </div>
-    </section>
-
-    <footer style="margin-top: 2rem;">
-        <div class="footer-bottom">
-            <p>&copy; <span id="aktualni-rok"></span> Oživto. Všechna práva vyhrazena.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const ctx = document.getElementById('organicSalesChart').getContext('2d');
-            Chart.defaults.font.family = "'Montserrat', sans-serif";
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Říjen', 'Listopad', 'Prosinec', 'Leden', 'Únor', 'Březen'],
-                    datasets: [{
-                        label: 'Prodané konzultace',
-                        data: [2, 3, 2, 2, 2, 3],
-                        backgroundColor: 'rgba(0, 248, 29, 0.15)',
-                        borderColor: 'rgba(0, 248, 29, 1)',
-                        borderWidth: 2,
-                        borderRadius: 6,
-                        hoverBackgroundColor: 'rgba(0, 248, 29, 0.3)'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 4,
-                            ticks: {
-                                stepSize: 1,
-                                font: { size: 13, weight: '600' },
-                                color: '#555'
-                            },
-                            grid: { color: 'rgba(0,0,0,0.05)', drawBorder: false }
-                        },
-                        x: {
-                            ticks: { font: { size: 13, weight: '600' }, color: '#333' },
-                            grid: { display: false, drawBorder: false }
-                        }
-                    },
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            backgroundColor: '#111',
-                            titleFont: { size: 14, family: 'Montserrat', weight: '700' },
-                            bodyFont: { size: 14, family: 'Montserrat' },
-                            padding: 12,
-                            displayColors: false,
-                            callbacks: {
-                                label: function(context) {
-                                    return context.raw + ' konzultace (' + (context.raw * 3000).toLocaleString() + ' Kč)';
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        });
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const counters = document.querySelectorAll('.count-up');
-            const speed = 100;
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const counter = entry.target;
-                        const updateCount = () => {
-                            const target = +counter.getAttribute('data-target');
-                            const count = +counter.innerText.replace(/\s/g, ''); 
-                            const inc = target / speed;
-                            if (count < target) {
-                                counter.innerText = Math.ceil(count + inc).toLocaleString('cs-CZ');
-                                setTimeout(updateCount, 15);
-                            } else {
-                                counter.innerText = target.toLocaleString('cs-CZ');
-                            }
-                        };
-                        updateCount();
-                        observer.unobserve(counter);
-                    }
-                });
-            }, { threshold: 0.5 }); 
-            counters.forEach(counter => { observer.observe(counter); });
-        });
-    </script>
-
-    <script>document.getElementById('aktualni-rok').textContent = new Date().getFullYear();</script>
+<div class="bg-fx"></div><div class="grain"></div><div class="cursor-glow"></div><div class="progress"></div>
+<div class="nav-wrap"><nav class="nav">
+<a href="index.html" class="logo" aria-label="Oživto – domů"><img src="logo-crop-nav.png" alt="Oživto"></a>
+<ul class="nav-links"><li><a href="index.html#about">O nás</a></li><li><a href="index.html#services">Služby</a></li><li><a href="index.html#portfolio">Projekty</a></li><li><a href="weby.html">Weby</a></li><li><a href="index.html#team">Tým</a></li><li><a href="index.html#contact" class="cta">Kontaktovat</a></li></ul>
+<button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav></div>
+<header class="page-hero"><div class="container"><a href="index.html" class="back reveal"><i class="fa-solid fa-arrow-left"></i> Zpět</a><br><div class="logo-pill reveal"><img src="czechdesigners-logo.png" alt=""></div><br><span class="tag reveal">Komplexní video funnel</span><h1 class="reveal">Czech Designers: <span class="grad">přes 1 000 000 zhlédnutí</span></h1><p class="lead reveal">Jak jsme pomocí strategického propojení virálních krátkých videí a expertního obsahu na YouTube vybudovali stroj, který organicky generuje důvěru a prodává prémiové konzultace.</p></div></header><section style="padding-top:20px"><div class="container"><div class="bento">
+<div class="b s4 reveal"><div class="big-num"><span data-count="1000000">0</span><small>+</small></div><p style="margin-top:10px">Organických zhlédnutí</p></div>
+<div class="b accent s4 reveal"><div class="big-num">~<span data-count="1000">0</span></div><p style="margin-top:10px">Vysoce relevantních sledujících na YouTube</p></div>
+<div class="b s4 reveal"><div class="big-num"><span data-count="100">0</span><small>%</small></div><p style="margin-top:10px">Návratnost bez placené reklamy</p></div></div></div></section>
+<section class="tinted"><div class="container"><div class="prose reveal">
+<span class="tag">Výzva</span><h2>Jak prodávat odborné know-how bez drahých reklam?</h2>
+<p>Firma Czech Designers stála před klasickým problémem konzultačního byznysu. Prodávat prémiové poradenství a odborné know-how je složité, protože vyžaduje obrovskou míru <strong>důvěry</strong>. Tradiční placená reklama (Facebook/Instagram Ads) je v tomto odvětví drahá a má jednu zásadní slabinu: Lidé si nekoupí drahou konzultaci od někoho, koho vidí poprvé ve sponzorovaném příspěvku.</p>
+<p>Potřebovali jsme systém, který z úplného cizince udělá fanouška a následně platícího klienta. A to vše ideálně organicky, bez nutnosti pálit desetitisíce měsíčně v reklamních kampaních.</p>
+<div class="callout">Většina tvůrců dělá obrovskou chybu – snaží se prodat složitý produkt v 15vteřinovém TikToku. My jsme na to šli jinak. V krátkém videu jsme prodali pouze „kliknutí“ na dlouhé video. A až dlouhé video prodalo konzultaci.</div></div></div></section>
+<section><div class="container"><div class="sec-head reveal"><span class="tag">Naše strategie</span><h2>Architektura třístupňového video funnelu</h2><p class="lead">Vytvořili jsme výkonný prodejní trychtýř (funnel), který pracuje 24 hodin denně, 7 dní v týdnu. Namísto náhodného natáčení videí jsme obsah přísně rozdělili do tří na sebe navazujících fází. Pro dosažení maximálních výsledků jsme nenechali nic náhodě. V rámci příprav jsme s klientem absolvovali vzdělávací schůzku s asistentkou Denise Vencela z jedné z nejlepších marketingových agentur v Česku a Slovensku – VYVYD Creatives a detailně jsme s nimi ladili celkovou strategii.</p></div>
+<div class="bento">
+<div class="b s4 reveal"><div class="ico"><i class="fa-solid fa-bullseye"></i></div><span class="muted" style="font-weight:800;font-size:.76rem;letter-spacing:.12em">FÁZE 1 · ZÁSAH</span><h3 style="margin-top:6px">Sběr publika</h3><p><em>Instagram, Facebook, TikTok.</em> Na začátku trychtýře potřebujeme objem. Tvořili jsme dynamická, úderná vertikální videa (15–45 vteřin). Cíl: Algoritmus ukáže video desetitisícům lidí. Zachytíme jejich pozornost a na konci videa je vyzveme k interakci v komentářích.</p></div>
+<div class="b accent s4 reveal"><div class="ico" style="background:rgba(2,39,19,.15);border-color:rgba(2,39,19,.3);color:#022713"><i class="fa-brands fa-youtube"></i></div><span style="font-weight:800;font-size:.76rem;letter-spacing:.12em">FÁZE 2 · DŮVĚRA A AUTORITA</span><h3 style="margin-top:6px">ManyChat automatizace &amp; Long-form YouTube</h3><p>Tady se děje to hlavní kouzlo. <strong>Pomocí nástroje ManyChat jsme zautomatizovali přechod diváků z Instagramu na YouTube.</strong> Jakmile uživatel okomentoval Reels určitým slovem, automat mu do DM okamžitě poslal odkaz na dlouhé (10–20minutové) video. Na YouTube jsme pak šli do absolutní hloubky a vybudovali potřebnou důvěru.</p></div>
+<div class="b s4 reveal"><div class="ico"><i class="fa-solid fa-sack-dollar"></i></div><span class="muted" style="font-weight:800;font-size:.76rem;letter-spacing:.12em">FÁZE 3 · KONVERZE</span><h3 style="margin-top:6px">Prodej konzultací</h3><p>V dlouhých videích na YouTube už nebylo potřeba dělat agresivní prodej. Stačilo jemné připomenutí s odkazem v popisku. Lidé, kteří video dokoukali, byli natolik „zahřátí“, že sami klikali a kupovali placené konzultace.</p></div>
+</div></div></section>
+<section class="tinted"><div class="container"><div class="sec-head center reveal"><span class="tag">Ukázka naší práce</span><h2>Videa, která strategii držela pohromadě</h2><p class="lead" style="margin:auto">Podívejte se na výsledná videa, která celou tuto strategii držela pohromadě po vizuální i obsahové stránce.</p></div>
+<div class="video reveal" style="max-width:960px;margin:auto"><iframe src="https://www.youtube.com/embed/lIpAWyH2ZBA" title="Czech Designers – ukázka" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<div class="center reveal" style="margin-top:28px"><a href="https://www.youtube.com/@czechdesigners/videos" target="_blank" rel="noopener" class="btn ghost">Zobrazit další videa <i class="fa-brands fa-youtube"></i></a></div></div></section>
+<section><div class="container"><div class="prose reveal"><span class="tag">Výsledek</span><h2>Proměna diváků v platící klienty</h2>
+<p>Tento strategický přístup přinesl zásadní výsledky. Během jediného roku jsme dokázali vygenerovat přes <strong>1 000 000 organických zhlédnutí</strong> napříč platformami a k tomu 120 000 pouze na YouTube.</p>
+<p><strong>Mimořádný organický zásah:</strong> Podařilo se nám vyprodukovat 2 dlouhá videa, z nichž každé přesáhlo hranici <strong>10 000 zhlédnutí</strong>. Dosáhnout takových čísel s dlouhým formátem na kanálu, který má kolem 1 000 sledujících, je obrovský úspěch. Jasně to dokazuje, že YouTube vyhodnotil náš obsah jako vysoce kvalitní a masivně ho doporučuje novým divákům.</p>
+<p>YouTube kanál získal téměř <strong>1 000 vysoce relevantních odběratelů</strong>. Funnel zásadně ušetřil čas klienta na prodejních schůzkách – na konzultace totiž začali chodit lidé, kteří už měli nakoukané hodiny obsahu, znali hodnotu klienta a rovnou vytahovali peněženku.</p>
+<h3>Stabilní přísun klientů z organiky (ukázka za 6 měsíců)</h3>
+<p>Graf níže ukazuje, jak trychtýř dodával uzavřené konzultace naprosto automaticky. Každá z těchto konzultací je zpoplatněna částkou <strong>3 000 Kč</strong>.</p>
+<div class="chart-box"><canvas id="salesChart"></canvas></div>
+<h3>Finanční přínos a strategie</h3>
+<p>Za sledovaných 6 měsíců systém vygeneroval celkem <strong>14 konzultací</strong>, což odpovídá obratu <strong>42 000 Kč</strong>. Je důležité zdůraznit, že toto není hlavní příjem klienta. Konzultace slouží jako vedlejší produkt a strategický filtr. Právě z těchto hovorů totiž vznikají zakázky na kompletní realizace <strong>3D vizualizací</strong>, kde je cena projektu mnohonásobně vyšší a tvoří jádro byznysu.</p></div></div></section>
+<section class="tinted"><div class="container"><div class="sec-head reveal"><span class="tag">Další studie</span><h2>Podívejte se i na další projekty</h2></div><div class="bento"><a href="lounytridi.html" class="b img-fill proj s4 reveal" style="min-height:300px"><img src="louny/lt-cabrio.jpg" alt="Louny třídí" loading="lazy"><span class="go"><i class="fa-solid fa-arrow-up-right-from-square"></i></span><div class="cap"><h3>Louny třídí</h3><span>13 000+ zhlédnutí jednoho videa</span></div></a><a href="homeaway.html" class="b img-fill proj s4 reveal" style="min-height:300px"><img src="homeaway.png" alt="Homeaway" loading="lazy"><span class="go"><i class="fa-solid fa-arrow-up-right-from-square"></i></span><div class="cap"><h3>Homeaway</h3><span>Identita, web a video</span></div></a><a href="kangelo.html" class="b img-fill proj s4 reveal" style="min-height:300px"><img src="kangelops.png" alt="Kangelo" loading="lazy"><span class="go"><i class="fa-solid fa-arrow-up-right-from-square"></i></span><div class="cap"><h3>Kangelo</h3><span>85 000+ zhlédnutí s AI hlasem</span></div></a></div></div></section>
+<section class="fade-top"><div class="container"><div class="b accent reveal center" style="padding:clamp(36px,6vw,80px) 24px"><h2 style="margin-bottom:14px">Chcete postavit podobný prodejní automat?</h2><p style="max-width:560px;margin:0 auto 26px;font-size:1.1rem">Nebudeme vám jen natáčet hezká videa. Postavíme vám strategii, která reálně generuje poptávky.</p><a href="index.html#contact" class="btn" style="background:#022713;color:#fff">Domluvit nezávazný hovor <i class="fa-solid fa-arrow-right"></i></a></div></div></section>
+<footer><div class="container">
+<div class="foot-grid">
+<div class="b reveal"><a href="index.html" class="logo"><img src="logo-crop-nav.png" alt="Oživto"></a>
+<p>Pomáháme firmám růst skrze moderní video marketing a strategie na sociálních sítích.</p>
+<div class="socials"><a href="https://www.instagram.com/ozivto.cz/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="https://www.linkedin.com/company/ozivto/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href="https://www.facebook.com/ozivto.cz/" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></div></div>
+<div class="b reveal"><h4>Fakturační údaje</h4><p><strong style="color:#fff">Ondřej Parýzek</strong></p><p>IČO: 23559624</p><p>Sídlo: Zeměchy 33, 440 01 Louny</p><p style="margin-top:10px;font-size:.82rem">Fyzická osoba zapsaná v živnostenském rejstříku.<br>Nejsem plátce DPH.</p></div>
+<div class="b reveal"><h4>Kontakt &amp; Info</h4>
+<p><i class="fa-solid fa-phone" style="color:var(--accent);margin-right:8px"></i><a href="tel:+420723871837">Ondřej: +420 723 871 837</a></p>
+<p><i class="fa-solid fa-phone" style="color:var(--accent);margin-right:8px"></i><a href="tel:+420722066403">Daniel: +420 722 066 403</a></p>
+<p><i class="fa-solid fa-envelope" style="color:var(--accent);margin-right:8px"></i><a href="mailto:ondrej@jsmeozivto.cz">ondrej@jsmeozivto.cz</a></p>
+<p><i class="fa-solid fa-envelope" style="color:var(--accent);margin-right:8px"></i><a href="mailto:info@jsmeozivto.cz">info@jsmeozivto.cz</a></p>
+<div class="links"><a href="gdpr.html">Zásady ochrany osobních údajů</a><a href="cookies.html">Zásady používání cookies</a><a href="obchodnipodminky.html">Obchodní podmínky</a></div></div>
+</div>
+<p class="foot-bottom">&copy; <span class="js-year">2026</span> Oživto. Všechna práva vyhrazena.</p>
+</div></footer>
+<a href="index.html#contact" class="sticky-cta" aria-label="Domluvit hovor"><span class="dot"></span> Domluvit nezávazný hovor <i class="fa-solid fa-arrow-right"></i></a>
+<div id="cookie-banner" class="cookie hidden" role="dialog" aria-label="Cookies"><div><h3>Nastavení soukromí</h3><p>Používáme cookies pro zajištění správného chodu webu a s vaším souhlasem i pro analýzu návštěvnosti a marketing. <a href="cookies.html">Více informací o tom, jak sbíráme cookies</a>.</p></div>
+<div class="cookie-btns"><button id="cookie-reject" class="btn ghost sm">Odmítnout</button><button id="cookie-settings-btn" class="btn ghost sm">Nastavení</button><button id="cookie-accept" class="btn primary sm">Přijmout vše</button></div></div>
+<div id="cookie-modal" class="cookie-modal hidden"><div class="modal-card"><h3>Předvolby cookies</h3><p class="muted">Zde si můžete upravit nastavení jednotlivých typů cookies.</p>
+<div class="copt"><input type="checkbox" id="cookie-necessary" checked disabled><label for="cookie-necessary"><strong>Nezbytné (Technické)</strong><br><small>Nutné pro fungování webu. Nelze vypnout.</small></label></div>
+<div class="copt"><input type="checkbox" id="cookie-analytics"><label for="cookie-analytics"><strong>Analytické</strong><br><small>Pomáhají nám vylepšovat web měřením návštěvnosti.</small></label></div>
+<div class="copt"><input type="checkbox" id="cookie-marketing"><label for="cookie-marketing"><strong>Marketingové</strong><br><small>Pro zobrazení relevantní reklamy.</small></label></div>
+<div class="row"><button id="cookie-save-preferences" class="btn primary sm">Uložit nastavení</button><button id="cookie-close-modal" class="btn ghost sm">Zavřít</button></div></div></div>
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script><script>
+(function(){const c=document.getElementById('salesChart');if(!c||!window.Chart)return;
+Chart.defaults.color='rgba(226,255,236,.7)';Chart.defaults.font.family="'Plus Jakarta Sans',sans-serif";
+const g=c.getContext('2d').createLinearGradient(0,0,0,320);g.addColorStop(0,'rgba(0,248,29,.9)');g.addColorStop(1,'rgba(0,248,29,.12)');
+new Chart(c,{type:'bar',data:{labels:['Říjen', 'Listopad', 'Prosinec', 'Leden', 'Únor', 'Březen'],datasets:[{label:'Konzultací',data:[2, 3, 2, 2, 2, 3],backgroundColor:g,borderRadius:10,borderSkipped:false}]},
+options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{beginAtZero:true,grid:{color:'rgba(190,255,215,.1)'}}}}});})();
+</script>
 </body>
 </html>
