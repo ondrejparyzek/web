@@ -1,175 +1,152 @@
 document.addEventListener('DOMContentLoaded', () => {
-    document.documentElement.classList.remove('no-js');
-
-    /* Mobilní menu */
-    const burger = document.querySelector('.burger');
-    const links = document.querySelector('.nav-links');
-    if (burger && links) {
-        const toggle = (open) => {
-            links.classList.toggle('active', open);
-            burger.classList.toggle('active', open);
-            document.body.style.overflow = open ? 'hidden' : '';
-        };
-        burger.addEventListener('click', () => toggle(!links.classList.contains('active')));
-        links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
-    }
-
-    /* Reveal při scrollu */
-    const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach((el, i) => {
-        el.style.setProperty('--d', ((i % 4) * 0.08) + 's');
-        io.observe(el);
-    });
-
-    /* Světlo sledující kurzor v bento blocích */
-    document.querySelectorAll('.b').forEach(b => {
-        b.addEventListener('pointermove', (e) => {
-            const r = b.getBoundingClientRect();
-            b.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-            b.style.setProperty('--my', (e.clientY - r.top) + 'px');
-        });
-    });
-
-    /* Marquee – zdvojení obsahu pro plynulou smyčku */
-    document.querySelectorAll('.marquee-track').forEach(t => { t.innerHTML += t.innerHTML; });
-
-    /* FAQ */
-    const faqs = document.querySelectorAll('.faq-item');
-    faqs.forEach(item => {
-        item.querySelector('.faq-q').addEventListener('click', () => {
-            const was = item.classList.contains('active');
-            faqs.forEach(o => o.classList.remove('active'));
-            if (!was) item.classList.add('active');
-        });
-    });
-
-    /* Modály */
-    const closeModal = (m) => { if (m) { m.classList.remove('active'); document.body.style.overflow = ''; m.querySelectorAll('iframe[data-src]').forEach(f => f.src = 'about:blank'); } };
-    document.querySelectorAll('[data-modal]').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const m = document.getElementById(btn.dataset.modal);
-            if (m) { m.classList.add('active'); document.body.style.overflow = 'hidden'; m.querySelectorAll('iframe[data-src]').forEach(f => f.src = f.dataset.src); }
-        });
-    });
-    document.querySelectorAll('.modal').forEach(m => {
-        m.addEventListener('click', (e) => { if (e.target === m || e.target.closest('.modal-x') || e.target.closest('[data-close]')) closeModal(m); });
-    });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') document.querySelectorAll('.modal.active').forEach(closeModal); });
-
-    /* Drag-scroll (kroky, recenze) */
-    document.querySelectorAll('.steps, .reviews').forEach(s => {
-        let down = false, sx = 0, sl = 0, moved = false;
-        s.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') return; down = true; moved = false; sx = e.pageX; sl = s.scrollLeft; });
-        window.addEventListener('pointerup', () => { down = false; s.classList.remove('dragging'); });
-        s.addEventListener('pointermove', (e) => {
-            if (!down) return;
-            const dx = e.pageX - sx;
-            if (Math.abs(dx) > 4) { moved = true; s.classList.add('dragging'); }
-            s.scrollLeft = sl - dx;
-        });
-    });
-
-    /* Počítadla */
-    const fmt = (n) => n.toLocaleString('cs-CZ').replace(/\s/g, '\u00a0');
-    const cio = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if (!e.isIntersecting) return;
-            const el = e.target, target = +el.dataset.count, dur = 1800, t0 = performance.now();
-            const tick = (t) => {
-                const p = Math.min((t - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 4);
-                el.textContent = fmt(Math.round(target * eased));
-                if (p < 1) requestAnimationFrame(tick);
-            };
-            requestAnimationFrame(tick);
-            cio.unobserve(el);
-        });
-    }, { threshold: .5 });
-    document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
-
-
-    /* Reel (hero) – zdvojení obsahu pro nekonečnou smyčku */
-    document.querySelectorAll('.reel-col').forEach(c => { c.innerHTML += c.innerHTML; });
-
-    /* Progress bar + schovávání navigace + sticky CTA */
-    const bar = document.querySelector('.progress'), navWrap = document.querySelector('.nav-wrap'), sticky = document.querySelector('.sticky-cta');
-    const contact = document.getElementById('contact'), hero = document.querySelector('.hero, .page-hero');
-    let lastY = 0, ticking = false;
-    const onScroll = () => {
-        const y = window.scrollY, max = document.documentElement.scrollHeight - innerHeight;
-        if (bar) bar.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
-        if (navWrap) navWrap.classList.toggle('hide', y > 240 && y > lastY + 4 && !(links && links.classList.contains('active')));
-        if (navWrap && y < lastY - 4) navWrap.classList.remove('hide');
-        if (sticky) {
-            const pastHero = y > (hero ? hero.offsetHeight * 0.7 : 500);
-            let nearContact = false;
-            if (contact) { nearContact = contact.getBoundingClientRect().top < innerHeight * .6; } else { const f = document.querySelector('footer'); if (f) nearContact = f.getBoundingClientRect().top < innerHeight * .8; }
-            sticky.classList.toggle('show', pastHero && !nearContact);
-        }
-        lastY = y; ticking = false;
-    };
-    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
-    onScroll();
-
-    /* Záře za kurzorem + magnetická tlačítka (jen myš) */
-    const glow = document.querySelector('.cursor-glow');
-    if (glow && matchMedia('(hover:hover) and (pointer:fine)').matches) {
-        window.addEventListener('pointermove', (e) => { glow.classList.add('on'); glow.style.transform = 'translate(' + e.clientX + 'px,' + e.clientY + 'px)'; }, { passive: true });
-        document.querySelectorAll('.magnetic').forEach(b => {
-            b.addEventListener('pointermove', (e) => { const r = b.getBoundingClientRect(); b.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * .18) + 'px,' + ((e.clientY - r.top - r.height / 2) * .28) + 'px)'; });
-            b.addEventListener('pointerleave', () => { b.style.transform = ''; });
-        });
-    }
-
-    /* Šipky u recenzí */
-    document.querySelectorAll('.arrow').forEach(a => a.addEventListener('click', () => {
-        const rv = document.querySelector('.reviews'); if (!rv) return;
-        const card = rv.querySelector('.review'); rv.scrollBy({ left: a.dataset.dir * (card.offsetWidth + 16), behavior: 'smooth' });
-    }));
-
-    /* Lightbox pro obrázky */
-    const zoomImgs = document.querySelectorAll('img[data-zoom]');
-    if (zoomImgs.length) {
-        const lb = document.createElement('div'); lb.className = 'lightbox'; lb.innerHTML = '<img alt="">'; document.body.appendChild(lb);
-        zoomImgs.forEach(im => im.addEventListener('click', () => { lb.firstChild.src = im.src; lb.classList.add('on'); }));
-        lb.addEventListener('click', () => lb.classList.remove('on'));
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lb.classList.remove('on'); });
-    }
-
-    /* Časová osa procesu */
-    const tline = document.getElementById('timeline');
-    if (tline) {
-        const items = tline.querySelectorAll('.tl-item');
-        const upd = () => {
-            const r = tline.getBoundingClientRect(), mid = innerHeight * .55;
-            const p = Math.max(0, Math.min(1, (mid - r.top) / r.height));
-            tline.style.setProperty('--p', (p * 100) + '%');
-            items.forEach(it => { const nr = it.querySelector('.tl-node').getBoundingClientRect(); it.classList.toggle('on', nr.top + nr.height / 2 < mid); });
-        };
-        window.addEventListener('scroll', upd, { passive: true }); window.addEventListener('resize', upd); upd();
-    }
-
-    /* Rok v patičce */
-    document.querySelectorAll('.js-year').forEach(el => el.textContent = new Date().getFullYear());
-
-    /* Cookies */
-    const banner = document.getElementById('cookie-banner');
-    const cmodal = document.getElementById('cookie-modal');
-    let stored = null;
-    try { stored = localStorage.getItem('cookieConsent'); } catch (e) {}
-    if (banner && !stored) banner.classList.remove('hidden');
-    const save = (type) => {
-        try { localStorage.setItem('cookieConsent', type); } catch (e) {}
-        banner && banner.classList.add('hidden');
-        cmodal && cmodal.classList.add('hidden');
-    };
-    const on = (id, fn) => { const el = document.getElementById(id); if (el) el.addEventListener('click', fn); };
-    on('cookie-accept', () => save('all'));
-    on('cookie-reject', () => save('none'));
-    on('cookie-settings-btn', () => cmodal && cmodal.classList.remove('hidden'));
-    on('cookie-save-preferences', () => save('custom'));
-    on('cookie-close-modal', () => cmodal && cmodal.classList.add('hidden'));
-    document.querySelectorAll('[data-cookie-settings]').forEach(a => a.addEventListener('click', (e) => { e.preventDefault(); cmodal && cmodal.classList.remove('hidden'); }));
+const doc = document.documentElement, body = document.body;
+doc.classList.remove('no-js');
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => r.querySelectorAll(s);
+const burger = $('.burger'), links = $('.nav-links');
+if (burger && links) {
+const toggle = (open) => {
+links.classList.toggle('active', open);
+burger.classList.toggle('active', open);
+body.style.overflow = open ? 'hidden' : '';
+};
+burger.addEventListener('click', () => toggle(!links.classList.contains('active')));
+$$('a', links).forEach(a => a.addEventListener('click', () => toggle(false)));
+}
+if ('IntersectionObserver' in window) {
+const io = new IntersectionObserver((entries) => {
+entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: .08, rootMargin: '0px 0px -30px 0px' });
+$$('.reveal').forEach((el, i) => { el.style.transitionDelay = ((i % 4) * 0.07) + 's'; io.observe(el); });
+} else { $$('.reveal').forEach(el => el.classList.add('in')); }
+$$('.marquee-track').forEach(t => { t.innerHTML += t.innerHTML; });
+$$('.reel-col').forEach(c => { c.innerHTML += c.innerHTML; });
+const faqs = $$('.faq-item');
+faqs.forEach(item => {
+item.querySelector('.faq-q').addEventListener('click', () => {
+const was = item.classList.contains('active');
+faqs.forEach(o => o.classList.remove('active'));
+if (!was) item.classList.add('active');
+});
+});
+const closeModal = (m) => { if (m) { m.classList.remove('active'); body.style.overflow = ''; $$('iframe[data-src]', m).forEach(f => f.src = 'about:blank'); } };
+$$('[data-modal]').forEach(btn => {
+btn.addEventListener('click', (e) => {
+e.preventDefault();
+const m = document.getElementById(btn.dataset.modal);
+if (m) { m.classList.add('active'); body.style.overflow = 'hidden'; $$('iframe[data-src]', m).forEach(f => f.src = f.dataset.src); }
+});
+});
+$$('.modal').forEach(m => {
+m.addEventListener('click', (e) => { if (e.target === m || e.target.closest('.modal-x') || e.target.closest('[data-close]')) closeModal(m); });
+});
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') $$('.modal.active').forEach(closeModal); });
+$$('.reviews').forEach(s => {
+let down = false, sx = 0, sl = 0;
+s.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') return; down = true; sx = e.pageX; sl = s.scrollLeft; });
+window.addEventListener('pointerup', () => { down = false; s.classList.remove('dragging'); });
+s.addEventListener('pointermove', (e) => {
+if (!down) return;
+const dx = e.pageX - sx;
+if (Math.abs(dx) > 4) s.classList.add('dragging');
+s.scrollLeft = sl - dx;
+});
+});
+const fmt = (n) => n.toLocaleString('cs-CZ').replace(/\s/g, ' ');
+const counters = $$('[data-count]');
+if (counters.length && 'IntersectionObserver' in window) {
+const cio = new IntersectionObserver((entries) => {
+entries.forEach(e => {
+if (!e.isIntersecting) return;
+const el = e.target, target = +el.dataset.count, dur = 1600, t0 = performance.now();
+const tick = (t) => {
+const p = Math.min((t - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 4);
+el.textContent = fmt(Math.round(target * eased));
+if (p < 1) requestAnimationFrame(tick);
+};
+requestAnimationFrame(tick);
+cio.unobserve(el);
+});
+}, { threshold: .5 });
+counters.forEach(el => cio.observe(el));
+} else { counters.forEach(el => el.textContent = fmt(+el.dataset.count)); }
+const bar = $('.progress'), navWrap = $('.nav-wrap'), sticky = $('.sticky-cta');
+const contact = document.getElementById('contact'), footer = $('footer'), hero = $('.hero, .page-hero');
+const tline = document.getElementById('timeline'), tItems = tline ? $$('.tl-item', tline) : [];
+let lastY = 0, ticking = false, vh = innerHeight, docH = doc.scrollHeight, heroH = hero ? hero.offsetHeight : 500;
+const measure = () => { vh = innerHeight; docH = doc.scrollHeight; heroH = hero ? hero.offsetHeight : 500; };
+const frame = () => {
+const y = window.scrollY, max = docH - vh;
+if (bar) bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
+if (navWrap) {
+if (y > 240 && y > lastY + 4 && !(links && links.classList.contains('active'))) navWrap.classList.add('hide');
+else if (y < lastY - 4 || y <= 240) navWrap.classList.remove('hide');
+}
+if (sticky) {
+let near = false;
+const t = contact || footer;
+if (t) near = t.getBoundingClientRect().top < vh * (contact ? .6 : .8);
+sticky.classList.toggle('show', y > heroH * .7 && !near);
+}
+if (tline) {
+const r = tline.getBoundingClientRect(), mid = vh * .55;
+if (r.bottom > -200 && r.top < vh + 200) {
+tline.style.setProperty('--p', (Math.max(0, Math.min(1, (mid - r.top) / r.height)) * 100) + '%');
+tItems.forEach(it => { const nr = it.firstElementChild.getBoundingClientRect(); it.classList.toggle('on', nr.top + nr.height / 2 < mid); });
+}
+}
+lastY = y; ticking = false;
+};
+window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
+window.addEventListener('resize', () => { measure(); frame(); });
+window.addEventListener('load', () => { measure(); frame(); });
+frame();
+if (matchMedia('(hover:hover) and (pointer:fine)').matches) {
+$$('.magnetic').forEach(b => {
+b.addEventListener('pointermove', (e) => { const r = b.getBoundingClientRect(); b.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * .18) + 'px,' + ((e.clientY - r.top - r.height / 2) * .28) + 'px)'; });
+b.addEventListener('pointerleave', () => { b.style.transform = ''; });
+});
+}
+$$('.arrow').forEach(a => a.addEventListener('click', () => {
+const rv = $('.reviews'); if (!rv) return;
+const card = rv.querySelector('.review'); rv.scrollBy({ left: a.dataset.dir * (card.offsetWidth + 16), behavior: 'smooth' });
+}));
+const zoomImgs = $$('img[data-zoom]');
+if (zoomImgs.length) {
+const lb = document.createElement('div'); lb.className = 'lightbox'; lb.innerHTML = '<img alt="">'; body.appendChild(lb);
+zoomImgs.forEach(im => im.addEventListener('click', () => { lb.firstChild.src = im.dataset.full || im.currentSrc || im.src; lb.classList.add('on'); }));
+lb.addEventListener('click', () => lb.classList.remove('on'));
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lb.classList.remove('on'); });
+}
+const embedLinks = $$('[data-embed]');
+if (embedLinks.length) {
+const m = document.createElement('div'); m.className = 'modal'; m.id = 'modal-embed';
+m.innerHTML = '<div class="modal-card embed-card"><button class="modal-x" aria-label="Zavřít">&times;</button><iframe title="Video" allow="autoplay; encrypted-media; fullscreen" allowfullscreen scrolling="no"></iframe><a class="embed-open" target="_blank" rel="noopener"><i><svg class="ic" aria-hidden="true"><use href="#b-instagram"/></svg></i> Otevřít na Instagramu</a></div>';
+body.appendChild(m);
+const fr = $('iframe', m), ext = $('.embed-open', m);
+embedLinks.forEach(a => a.addEventListener('click', (e) => {
+if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+e.preventDefault(); fr.src = a.dataset.embed; ext.href = a.href; m.classList.add('active'); body.style.overflow = 'hidden';
+}));
+const shut = () => { m.classList.remove('active'); body.style.overflow = ''; fr.src = 'about:blank'; };
+m.addEventListener('click', (e) => { if (e.target === m || e.target.closest('.modal-x')) shut(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') shut(); });
+}
+$$('.js-year').forEach(el => el.textContent = new Date().getFullYear());
+const banner = document.getElementById('cookie-banner'), cmodal = document.getElementById('cookie-modal');
+let stored = null;
+try { stored = localStorage.getItem('cookieConsent'); } catch (e) {}
+const showBanner = (v) => { if (!banner) return; banner.classList.toggle('hidden', !v); body.classList.toggle('has-cookie', v); };
+showBanner(!stored);
+const save = (type) => {
+try { localStorage.setItem('cookieConsent', type); } catch (e) {}
+showBanner(false);
+cmodal && cmodal.classList.add('hidden');
+};
+const on = (id, fn) => { const el = document.getElementById(id); if (el) el.addEventListener('click', fn); };
+on('cookie-accept', () => save('all'));
+on('cookie-reject', () => save('none'));
+on('cookie-settings-btn', () => cmodal && cmodal.classList.remove('hidden'));
+on('cookie-save-preferences', () => save('custom'));
+on('cookie-close-modal', () => cmodal && cmodal.classList.add('hidden'));
+$$('[data-cookie-settings]').forEach(a => a.addEventListener('click', (e) => { e.preventDefault(); cmodal && cmodal.classList.remove('hidden'); }));
 });
