@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
-      <loc>https://www.jsmeozivto.cz/</loc>
-      <lastmod>2026-02-06</lastmod>
+      <loc>https://jsmeozivto.cz/</loc>
+      <lastmod>2026-10-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>1.0</priority>
+   </url>
+   <url>
+      <loc>https://jsmeozivto.cz/weby.html</loc>
+      <lastmod>2026-10-14</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://jsmeozivto.cz/czechdesigners.html</loc>
+      <lastmod>2026-10-14</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://jsmeozivto.cz/homeaway.html</loc>
+      <lastmod>2026-10-14</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://jsmeozivto.cz/kangelo.html</loc>
+      <lastmod>2026-10-14</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://jsmeozivto.cz/lounytridi.html</loc>
+      <lastmod>2026-10-14</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://jsmeozivto.cz/rezervace.html</loc>
+      <lastmod>2026-10-14</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
    </url>
 </urlset>
