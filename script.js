@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sticky) {
             const pastHero = y > (hero ? hero.offsetHeight * 0.7 : 500);
             let nearContact = false;
-            if (contact) { const r = contact.getBoundingClientRect(); nearContact = r.top < innerHeight * .6 && r.bottom > 0; }
+            if (contact) { nearContact = contact.getBoundingClientRect().top < innerHeight * .6; } else { const f = document.querySelector('footer'); if (f) nearContact = f.getBoundingClientRect().top < innerHeight * .8; }
             sticky.classList.toggle('show', pastHero && !nearContact);
         }
         lastY = y; ticking = false;
